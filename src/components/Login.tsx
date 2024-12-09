@@ -24,10 +24,22 @@ const Login: React.FC = () => {
       if (response) {
         setMessage("Connexion réussie");
         localStorage.setItem("userRole", response.role); // Enregistre le rôle dans localStorage
-        if (response.role === "professeur") {
-          window.location.href = "http://localhost:5173/professeur";
+
+        let baseUrl = window.location.origin;
+        if (baseUrl === "http://localhost:5173") {
+          if (response.role === "professeur") {
+            window.location.href = `${baseUrl}/professeur`;
+          } else {
+            window.location.href = `${baseUrl}/visiteur`;
+          }
+        } else if (baseUrl === "https://501-three.vercel.app") {
+          if (response.role === "professeur") {
+            window.location.href = `${baseUrl}/professeur`;
+          } else {
+            window.location.href = `${baseUrl}/visiteur`;
+          }
         } else {
-          window.location.href = "http://localhost:5173/visiteur";
+          setMessage("Origine inconnue");
         }
       } else {
         setMessage("Erreur lors de la connexion");
