@@ -32,7 +32,7 @@ const Login: React.FC = () => {
           } else {
             window.location.href = `${baseUrl}/visiteur`;
           }
-        } else if (baseUrl === "https://501-three.vercel.app") {
+        } else if (baseUrl === "https://501-retr0edits-projects.vercel.app") {
           if (response.role === "professeur") {
             window.location.href = `${baseUrl}/professeur`;
           } else {
