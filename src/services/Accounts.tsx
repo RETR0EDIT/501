@@ -2,27 +2,14 @@ import Delete from "./CRUD/Delete";
 import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
+import ModelAccount from "../models/ModelAccount";
 
 const API_URL = "http://localhost:8080/api/accounts";
 
-interface Account {
-  id: number;
-  login: string;
-  password: string;
-  firstname: string;
-  lastname: string;
-  city: string;
-  study: string;
-  role: string;
-  phone: string;
-  createdat: Date;
-  editedat: Date;
-  valid: boolean;
-  date: Date;
-}
+
 
 const Accounts = {
-  Create: async (Data: Account) => {
+  Create: async (Data: ModelAccount) => {
     return await Post(API_URL, Data);
   },
   Read: async () => {
@@ -34,7 +21,7 @@ const Accounts = {
   Login: async (Data: any) => {
     return await Post(`${API_URL}/login`, Data); // Utilisez Post au lieu de Get
   },
-  Update: async (Data: Account) => {
+  Update: async (Data: ModelAccount) => {
     return await Put(API_URL, Data);
   },
   Delete: async (id: string) => {

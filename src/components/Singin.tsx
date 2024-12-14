@@ -2,33 +2,48 @@ import React, { useState } from "react";
 import Accounts from "../services/Accounts";
 import "./styles/signin.css";
 import { useDarkMode } from "./utils/DarkModeContext";
+import ModelAccount from "../models/ModelAccount";
+
+/**
+ * 
+ *     id: number;
+    login: string;
+    password: string;
+    firstname: string;
+    lastname: string;
+    city: string;
+    study: string;
+    role: string;
+    phone: string;
+    image: string;
+    createdat: Date;
+    editedat: Date;
+    valid: boolean;
+    date: Date;
+ */
 
 const Signin = () => {
+  var confirmPassword
   const { isDarkMode } = useDarkMode();
-  const [accountData, setAccountData] = useState({
+  const [accountData, setAccountData] = useState<ModelAccount>({
+    id: 0,
     login: "",
     password: "",
     firstname: "",
     lastname: "",
     city: "",
     study: "",
-    role: "",
+    role: "USER",
     phone: "",
-    email: "",
-    birthdate: "",
-    status: "",
-    confirmPassword: "",
+    image: "",
+    createdat: new Date(),
+    editedat: new Date(),
+    valid: false,
+    date: new Date(),
   });
   const [message, setMessage] = useState("");
 
-  const handleStatusChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setAccountData({
-      ...accountData,
-      status: value,
-      role: value,
-    });
-  };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -112,7 +127,7 @@ const Signin = () => {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    value={accountData.email}
+                    value={accountData.login}
                     onChange={handleChange}
                     required
                     className="signin-input"
@@ -132,18 +147,6 @@ const Signin = () => {
                 </div>
               </div>
               <div className="ctn-input">
-                <div className="input-ctn Statut">
-                  <span className="signin-span">Statut</span>
-                  <input
-                    type="text"
-                    name="status"
-                    placeholder="Statut"
-                    value={accountData.status}
-                    onChange={handleStatusChange}
-                    required
-                    className="signin-input"
-                  />
-                </div>
                 <div className="input-ctn filliere">
                   <span className="signin-span">Filière souhaitée</span>
                   <input
@@ -164,7 +167,7 @@ const Signin = () => {
                     type="date"
                     name="birthdate"
                     placeholder="Date de naissance"
-                    value={accountData.birthdate}
+                    value={accountData.date.toISOString().split('T')[0]}
                     onChange={handleChange}
                     required
                     className="signin-input"
@@ -210,7 +213,7 @@ const Signin = () => {
                     type="password"
                     name="confirmPassword"
                     placeholder="Confirmer le mot de passe"
-                    value={accountData.confirmPassword}
+                    value={confirmPassword}
                     onChange={handleChange}
                     required
                     className="signin-input"

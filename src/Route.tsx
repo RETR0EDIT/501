@@ -22,6 +22,8 @@ import Template from "./components/professeur/Template";
 import HomeProf from "./components/professeur/Home.tsx";
 import ProfilsVisiteur from "./components/visiteur/ProfilsVisiteur.tsx";
 import ProfilsProf from "./components/professeur/ProfilsProf.tsx";
+import TemplateTest from "./components/visiteur/TemplateTest.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,7 +58,10 @@ const router = createBrowserRouter([
             path: "/visiteur",
             element: <HomeVisiteur />,
           },
-
+          {
+            path: "templateTests/:idTest",
+            element: <TemplateTest />,
+          },
           {
             path: "my_results",
             element: <MyResults />,
@@ -73,7 +78,6 @@ const router = createBrowserRouter([
             path: "cursus",
             element: <Cursus />,
           },
-
           {
             path: "profils",
             element: <ProfilsVisiteur />,
@@ -89,7 +93,6 @@ const router = createBrowserRouter([
             path: "/professeur",
             element: <HomeProf />,
           },
-
           {
             path: "Stats",
             element: <Stats />,

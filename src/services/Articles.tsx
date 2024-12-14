@@ -2,27 +2,19 @@ import Delete from "./CRUD/Delete";
 import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
+import ModelArticle from "../models/ModelArticle";
 
 const API_URL = "http://localhost:8080/api/articles";
 
-interface Article {
-    id: number;
-    title: string;
-    content: string;
-    creator: string;
-    img: string;
-    editedat: Date;
-    createdat: Date;
-}
 
 const Articles = {
-    Create: async (Data: Article) => {
+    Create: async (Data: ModelArticle) => {
         return await Post(API_URL, Data);
     },
     Read: async () => {
         return await Get(API_URL);
     },
-    Update: async (Data: Article) => {
+    Update: async (Data: ModelArticle) => {
         return await Put(API_URL, Data);
     },
     Delete: async (id: string) => {

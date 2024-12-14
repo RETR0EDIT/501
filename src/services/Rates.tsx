@@ -2,13 +2,11 @@ import Delete from "./CRUD/Delete";
 import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
+import ModelRate from "../models/ModelRate";
 
 const API_URL = "http://localhost:8080/api/rates";
 
-interface Rate {
-    id: number;
-    note: string;
-}
+
 
 const Rates = {
     Create: async (Data) => {

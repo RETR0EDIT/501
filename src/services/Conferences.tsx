@@ -2,26 +2,18 @@ import Delete from "./CRUD/Delete";
 import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
-
+import ModelConference from "../models/ModelConference";
 const API_URL = "http://localhost:8080/api/conferences";
 
-interface Conference {
-    id: number;
-    master: string;
-    tstart: Date;
-    tend: Date;
-    title: string;
-    content: string;
-    room: string;
-}
+
 const Conferences = {
-    Create: async (Data: Conference) => {
+    Create: async (Data: ModelConference) => {
         return await Post(API_URL, Data);
     },
     Read: async () => {
         return await Get(API_URL);
     },
-    Update: async (Data: Conference) => {
+    Update: async (Data: ModelConference) => {
         return await Put(API_URL, Data);
     },
     Delete: async (id: string) => {

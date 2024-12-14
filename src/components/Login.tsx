@@ -23,7 +23,7 @@ const Login: React.FC = () => {
       const response = await Accounts.Login(loginData);
       if (response) {
         setMessage("Connexion réussie");
-        localStorage.setItem("userRole", response.role); // Enregistre le rôle dans localStorage
+        localStorage.setItem("userId", response.id); // Enregistre l'ID dans localStorage
 
         let baseUrl = window.location.origin;
         if (baseUrl === "http://localhost:5173") {
@@ -32,7 +32,10 @@ const Login: React.FC = () => {
           } else {
             window.location.href = `${baseUrl}/visiteur`;
           }
-        } else if (baseUrl === "https://501-retr0edits-projects.vercel.app") {
+        } else if (
+          baseUrl === "https://501-retr0edits-projects.vercel.app" ||
+          baseUrl === "https://501-kouerdevs-projects.vercel.app"
+        ) {
           if (response.role === "professeur") {
             window.location.href = `${baseUrl}/professeur`;
           } else {
