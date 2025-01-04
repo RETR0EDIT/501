@@ -3,8 +3,8 @@ import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
 import ModelRooms from "../models/ModelRooms";
-
-const API_URL = "http://localhost:8080/api/rooms";
+import { env } from "../../env";
+const API_URL = `${env.VITE_APP_API_URL}/rooms`;
 
 const Rooms = {
   Create: async (Data) => {

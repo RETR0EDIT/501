@@ -38,21 +38,19 @@ const Home = () => {
           </div>
           <div className="apropos-text">
             <p>
-              Je suis un paragraphe. Cliquez ici pour ajouter votre propre
-              texte. Cliquez sur "Modifier Texte" ou double-cliquez ici pour
-              ajouter votre contenu et personnaliser les polices. Déplacez-moi
-              où vous le souhaitez sur votre page.
+            L’IUT de Meaux vous ouvre ses portes pour une journée riche en découvertes. 
+            Venez explorer nos locaux modernes, rencontrer nos enseignants et étudiants, 
+            et en apprendre davantage sur nos formations adaptées aux enjeux professionnels d’aujourd’hui. 
+            Une occasion idéale pour découvrir un lieu d’apprentissage tourné vers l’avenir.            </p>
+            <p>
+            À l’IUT de Meaux, nous combinons excellence académique et proximité avec le monde professionnel.
+             Nos formations, nos équipements et notre pédagogie innovante offrent un cadre stimulant pour réussir 
+             et se préparer à l’avenir. Profitez de cette journée pour comprendre ce qui fait la force de notre établissement.
             </p>
             <p>
-              C'est l'espace idéal pour présenter votre entreprise, vos services
-              et vos équipes en détails. Présentez votre équipe et les services
-              proposés. Racontez l'histoire de votre entreprise et la raison
-              pour laquelle elle a été crée.
-            </p>
-            <p>
-              services et vos équipes en détails. Présentez votre équipe et les
-              services proposés. Racontez l'histoire de votre entreprise et la
-              raison pour laquelle elle a été crée.
+            Nos équipes de professeurs et d'étudiants seront présentes pour répondre à vos questions et vous accompagner dans votre projet professionnel. 
+            Que ce soit sur place ou via nos contacts en ligne, nous sommes là pour vous guider et vous faire découvrir 
+            tout ce que l’IUT de Meaux peut vous offrir.
             </p>
             <div className="apropos-actions">
               <button className="apropos-button">

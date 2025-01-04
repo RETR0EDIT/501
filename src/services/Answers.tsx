@@ -1,10 +1,11 @@
 import Delete from "./CRUD/Delete";
+import { env } from "../../env";
 import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
 import ModelAnswers from "../models/ModelAnswers";
 
-const API_URL = "http://localhost:8080/api/answers";
+const API_URL = `${env.VITE_APP_API_URL}/answers`;
 
 const Answers = {
   Create: async (Data: ModelAnswers) => {

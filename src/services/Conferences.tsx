@@ -3,8 +3,8 @@ import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
 import ModelConference from "../models/ModelConference";
-
-const API_URL = "http://localhost:8080/api/conferences";
+import { env } from "../../env";
+const API_URL = `${env.VITE_APP_API_URL}/conferences`;
 
 const Conferences = {
   Create: async (Data: ModelConference) => {

@@ -1,115 +1,284 @@
-.cursus-container {
-  padding: 20px;
+
+  
+  .cursus-container {
+    width: 90%;
+    margin: auto;
+  }
+
+ .cursus-container h1 {
+    font-family: "TT Norms Pro Bold", sans-serif;
+    font-size: 3rem;
+    margin-top: 40px;
+ }
+ .cursus-container p {
+    font-size: 1.4rem; /* Police des textes descriptifs */
+ }
+
+  .main-title {
+    color: #432683;
+    text-align: left;
+    max-width: 57%;
+    margin-top: 200px;
+  }
+
+
+  .image-container {
+        background-image: url("/banniere_gea.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        position: relative;
+        height: 500px;
+
+  }
+
+  .image-container2 {
+    background-image: url("/banniere_mmi.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    height: 500px;
+
 }
 
-.GEA {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+.image-container3 {
+  background-image: url("/banniere_tc.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  height: 500px;
+
+}
+  
+  /* Text and Questionnaire Section */
+  .text-questionnaire {
+    display: flex;
+    flex-direction: column; /* Mobile-first: Empile les éléments */
+    gap: 16px;
+    margin-top: 80px;
+  }
+  
+  .description-section {
+    padding: 16px;
+    text-align: left;
+  }
+  
+
+  .description-text2 {
+    margin-top: 30px;
+  }
+  
+  .questionnaire-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 150px;
+  }
+
+  
+  .questionnaire-title {
+    font-size: 2rem;
+    color: #432683;
+  }
+
+  .text-questionnaire p, .button-section {
+    margin-top: 20px;
+  }
+
+  .button-section{
+    text-align: right;
+  }
+  
+  .cta-button {
+    padding: 12px 24px;
+    background-color: #432683;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 150px;
+  }
+
+  
+  .parcours-title {
+    font-size: 2rem;
+    color: #432683;
+    text-align: left;
+    margin-top: 24px;
+  }
+  
+  .parcours-container {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 100px;
+    justify-content: center; 
+    width: 100%; 
+    align-items: center;
+    justify-items: center;
+    
+  }
+
+  .parcours-card2{
+    justify-items: center;
+    margin-top: 30px;
+  }
+  
+  .parcours-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px; /* Ajouter un peu de padding pour l'espacement interne */
+    border: 0.5px solid #432683;
+    border-radius: 40px;
+    height: 100%;
+    width: 100%; /* Adapter à la colonne */
+    max-width: 700px; /* Largeur maximale pour ne pas dépasser */
+    max-height: 450px;
+    margin-bottom: 40px;
+  }
+
+  .card-title {
+    color: #432683;
+    margin-top: 0 !important;
+    font-size: 2rem !important;
+  }
+
+  
+  .card-li {
+    text-align: left;
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+  }
+
+  .card-ul {
+    width: 80%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  .subtitle-card {
+    color: #432683;
+    font-family: "TT Norms Pro Bold", sans-serif;
+    margin-bottom: 30px;
+  }
+
+
+  @media (min-width: 768px) and (max-width: 1249px) {
+    .cursus-container p {
+      font-size: 2rem; /* Police des textes descriptifs */
+   }
+
+   .card-title {
+    font-size: 1.5rem !important;
+   }
+
+   .card-li {
+    font-size: 0.8rem;
+   }
+
+   .subtitle-card {
+    font-size: 1rem !important;
+   }
+  }
+
+  @media (max-width: 500px) {
+    .image-container, .image-container2, .image-container3 {
+      width: 100%;
+      height: 200px !important;
+      margin-top: 30px;
+    }
+    .card-li {
+      font-size: 1rem !important;
+      margin-bottom: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .parcours-container {
+      grid-template-columns: 1fr; /* Une seule colonne */
+      margin-top: 40px;
+    }
+
+    .card-li {
+      font-size: 1rem;
+    }
+
+  .main-title {
+      font-size: 1.9rem !important;
+      max-width: 80% !important;
+      }
+
+    .image-container, .image-container2, .image-container3 {
+      width: 100%;
+      height: 300px;
+      margin-top: 30px;
+    }
+
+    .cursus-container p {
+      font-size: 1rem; /* Police des textes descriptifs */
+   }
+
+   .cursus-container h1 {
+    font-size: 2rem;
+    margin-top: 40px;
+ }
+
+  .text-questionnaire{
+
+    margin-top: 20px;
+  }
+  }
+
+
+@media (max-width: 1250px) {
+
+ .questionnaire-section {
+  margin-left: 0;
+ }
 }
 
-.gea-title {
-  font-family: "TT Norms Pro Bold";
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #432683;
+  /* Responsive Adjustments */
+  @media (min-width: 1250px) {
+  .text-questionnaire {
+    flex-direction: row; /* Passe en mode côte à côte */
+  }
+
+  .text-questionnaire2 {
+    flex-direction: row !important; /* Passe en mode côte à côte */
+    margin-top: 80px;
+  }
+
+  .description-section,
+  .questionnaire-section,
+  .description-section2,
+  .questionnaire-section2 {
+    flex: 1; /* Occupe une largeur égale */
+  }
 }
 
-.gea-content {
+.questionnaire-section2 {
+  display: flex;
+  flex-direction: column; /* Mobile-first: Empile les éléments */
+  gap: 16px;
+  
+}
+
+.text-questionnaire2 {
   display: flex;
   flex-direction: column;
+  gap: 60px;
 }
 
-.gea-image-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.gea-image {
-  max-width: 100%;
-  height: auto;
-}
-
-.gea-text-container {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.gea-description {
-  width: 50%;
-  margin-bottom: 20px;
-}
-
-.gea-paragraph {
-  margin-bottom: 10px;
-  font-family: "TT Norms Pro Regular";
-  color: #333;
-}
-
-.gea-quiz {
-  width: 50%;
-  font-family: "TT Norms Pro Regular";
-  background-color: #e9e9e9;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.gea-quiz-title {
-  font-family: "TT Norms Pro Bold";
-  margin-bottom: 10px;
-  font-size: 20px;
+.questionnaire-title2{
+  margin-top: 0 !important;
   color: #432683;
-}
-
-.gea-quiz-description {
-  margin-bottom: 20px;
-  font-family: "TT Norms Pro Regular";
-  color: #333;
-}
-
-.gea-quiz-button-container {
-  text-align: center;
-}
-
-.gea-quiz-button {
-  background-color: #432683;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.gea-quiz-button:hover {
-  background-color: #321a5d;
-}
-
-@media (max-width: 768px) {
-  .gea-title {
-    font-size: 20px;
-  }
-
-  .gea-quiz-title {
-    font-size: 18px;
-  }
-
-  .gea-quiz-button {
-    padding: 8px 16px;
-  }
-}
-
-@media (max-width: 600px) {
-  .gea-title {
-    font-size: 18px;
-  }
-
-  .gea-quiz-title {
-    font-size: 16px;
-  }
-
-  .gea-quiz-button {
-    padding: 6px 12px;
-  }
 }

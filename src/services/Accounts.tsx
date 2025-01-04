@@ -1,12 +1,12 @@
+import { env } from "../../env";
 import Delete from "./CRUD/Delete";
 import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
 import ModelAccount from "../models/ModelAccount";
 import axios from "axios";
-import { data } from "react-router-dom";
 
-const API_URL = "http://localhost:8080/api/accounts";
+const API_URL = `${env.VITE_APP_API_URL}/accounts`;
 
 const Accounts = {
   Create: async (Data: ModelAccount) => {
