@@ -9,6 +9,9 @@ const Tests = {
   Create: async (Data: ModelTest) => {
     return await Post(API_URL, Data);
   },
+  GetByStudy: async (study: string) => {
+    return await Get(`${API_URL}/study/${study}`);
+  },
   Read: async () => {
     return await Get(API_URL);
   },

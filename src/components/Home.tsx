@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import "./styles/home.css";
 import { useDarkMode } from "./utils/DarkModeContext";
 
 const Home = () => {
   const { isDarkMode } = useDarkMode();
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   return (
     <div className="home-container">
@@ -20,7 +31,7 @@ const Home = () => {
         </div>
       </div>
 
-      <section className="apropos-section">
+      <section className="apropos-section" id="apropos-section">
         <div className="apropos-content-left">
           <div className="apropos-header">
             <h2 className="apropos-title">À Propos de l’iut</h2>
@@ -60,30 +71,32 @@ const Home = () => {
         </div>
       </section>
       <section className="nos_formation">
-        <div>
-          <h1>Nos formations</h1>
-          <div>
-            <div>
-              <img src="" alt="" />
-              <p></p>
+        <div className="formation_container">
+          <h1 className="formation_title">Nos formations</h1>
+          <div className="formation_list">
+            <div className="formation_item">
+              <img src="mmi.svg" alt="MMI" className="formation_image" />
+              <p className="formation_description"></p>
             </div>
-            <div>
-              <img src="" alt="" />
-              <p></p>
+            <div className="formation_item">
+              <img src="gea.svg" alt="GEA" className="formation_image" />
+              <p className="formation_description"></p>
             </div>
-
-            <div>
-              <img src="" alt="" />
-              <p></p>
+            <div className="formation_item">
+              <img src="tc.svg" alt="TC" className="formation_image" />
+              <p className="formation_description"></p>
             </div>
           </div>
         </div>
-        <div>
-          <div>
-            <div>
-              <h1>Préparez votre visite dès maintenant</h1>
+        <div className="visit_container">
+          <div className="visit_content">
+            <div className="visit_header">
+              <h1 className="visit_title">
+                Préparez votre visite dès maintenant
+              </h1>
             </div>
-            <div>
+
+            <div className="visit_description">
               <p>
                 En vue de notre Journée Portes Ouvertes, plongez dans une visite
                 virtuelle immersive pour découvrir tout ce qui vous attend à
@@ -92,9 +105,19 @@ const Home = () => {
                 étudiants avant même de venir sur place.
               </p>
             </div>
+            <div className="visit_button_container">
+              <button className="visit_button">
+                En savoir plus
+                <img
+                  src={isDarkMode ? "/arrow_dark.svg" : "/arrow.svg"}
+                  alt=""
+                  className="apropos-image"
+                />
+              </button>
+            </div>
           </div>
-          <div>
-            <img src="" alt="" />
+          <div className="visit_image_container">
+            <img src="formation.svg" alt="Formation" className="visit_image" />
           </div>
         </div>
       </section>

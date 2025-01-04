@@ -1,10 +1,12 @@
 /* styles/home.css */
 
+/* Global Styles */
 .home-container {
   width: 100%;
   margin: 0 auto;
 }
 
+/* JPO Section */
 .jpo-section {
   background-image: url("/background_home.svg");
   background-position: center;
@@ -32,6 +34,8 @@
 }
 
 .jpo-title {
+  font-family: "TT Norms Pro Bold", sans-serif;
+  color: #fff;
   width: 90%;
   font-size: 2rem;
   margin: 0;
@@ -67,6 +71,7 @@
   height: auto;
 }
 
+/* A Propos Section */
 .apropos-section {
   background: #fff;
   display: flex;
@@ -84,7 +89,6 @@
 
 .apropos-content-left {
   display: flex;
-
   flex-direction: column;
   justify-content: center;
 }
@@ -100,6 +104,7 @@
 }
 
 .apropos-title {
+  font-family: "TT Norms Pro Bold", sans-serif;
   font-size: 3rem;
   margin: 0;
   color: #432683;
@@ -110,6 +115,7 @@
   line-height: 1.5;
   color: #333;
 }
+
 .apropos-text p {
   width: 90%;
   color: #432683;
@@ -147,6 +153,119 @@
   height: auto;
 }
 
+/* Nos Formations Section */
+.formation_container {
+  background: #fff;
+  padding-bottom: 40px;
+}
+
+.formation_title {
+  font-family: "TT Norms Pro Bold", sans-serif;
+  font-size: 3rem;
+  color: #432683;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formation_list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.formation_item {
+  text-align: center;
+}
+
+.formation_image {
+  width: 395px;
+}
+
+.formation_description {
+  margin-top: 10px;
+}
+
+/* Visit Section */
+.visit_container {
+  width: 100%;
+  background: #583e92;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.visit_content {
+  max-width: 60%;
+  padding: 60px;
+}
+
+.visit_header {
+  margin-bottom: 20px;
+}
+
+.visit_title {
+  font-family: "TT Norms Pro Bold", sans-serif;
+  font-size: 3rem;
+  width: 500px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.visit_button_container {
+  margin-bottom: 20px;
+}
+
+.visit_button {
+  width: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #432683;
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1.1rem;
+  border: 1px solid #fff;
+}
+
+.visit_button img {
+  width: 15px;
+  height: auto;
+}
+
+.visit_description {
+  color: #ffffff;
+  font-family: "TT Norms Pro Regular", sans-serif;
+  line-height: 1.3;
+  font-size: 1.5rem;
+  height: 500px;
+  width: 620px;
+}
+
+.visit_image_container {
+  max-width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visit_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Media Queries */
+@media (max-width: 1250px) {
+  .formation_image {
+    width: 250px !important;
+  }
+}
+
 @media (max-width: 1150px) {
   .apropos-text {
     font-size: 1.1rem;
@@ -161,16 +280,27 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-
+  .formation_list {
+    flex-wrap: wrap;
+  }
   .apropos-section {
     flex-direction: column;
   }
-
+  .visit_description,
+  .visit_title {
+    width: 440px !important;
+  }
+  .visit_title {
+    font-size: 2.5rem !important;
+  }
+  .visit_description {
+    font-size: 1.1rem !important;
+    height: 400px !important;
+  }
   .apropos-content-left,
   .apropos-content-right {
     min-width: 100%;
   }
-
   .apropos-section {
     flex-direction: column;
   }
@@ -182,5 +312,23 @@
   }
   .apropos-text {
     font-size: 1rem;
+  }
+  .visit_container {
+    flex-direction: column;
+  }
+  .visit_description {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .visit_title {
+    width: 100% !important;
+  }
+  .visit_content {
+    max-width: 100% !important;
+  }
+  .visit_image_container {
+    max-width: 100% !important;
+    height: 200px !important;
+    margin-right: 20px;
   }
 }

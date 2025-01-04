@@ -3,26 +3,37 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import Contact from "./components/Contact.tsx";
-
+import Conference from "./components/visiteur/Conference.tsx";
 import Login from "./components/Login.tsx";
 import Signin from "./components/Singin.tsx";
 import Home from "./components/Home.tsx";
 import MyResults from "./components/visiteur/My_results";
 import Probleme from "./components/visiteur/Probleme";
-import RoomTour from "./components/visiteur/Room_tour";
+import RoomTour from "./components/Room_tour.tsx";
 import ErrorPage from "./components/visiteur/ErrorPage";
 import Cursus from "./components/Cursus.tsx";
-import HomeVisiteur from "./components/visiteur/Home.tsx";
+import CreaTest from "./components/professeur/CreaTest.tsx";
 import RouteVisiteur from "./components/visiteur/Route.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RouteProffeseur from "./components/professeur/Route.tsx";
-import Monitoring from "./components/professeur/Monitoring";
+
 import Stats from "./components/professeur/Stats";
 import Template from "./components/professeur/Template";
 import HomeProf from "./components/professeur/Home.tsx";
 import ProfilsVisiteur from "./components/visiteur/ProfilsVisiteur.tsx";
 import ProfilsProf from "./components/professeur/ProfilsProf.tsx";
 import TemplateTest from "./components/visiteur/TemplateTest.tsx";
+import ConferenceProf from "./components/professeur/Conference.tsx";
+import Token from "./components/Token.tsx";
+import Unauthorized from "./components/Unauthorized.tsx";
+import PrivateRoute from "./PrivateRoute.tsx";
+import Template_1 from "./components/professeur/utils/template/Template_1.tsx";
+import MentionsLegales from "./components/MentionsLegales.tsx";
+import PolitiqueConfidentialite from "./components/PolitiqueConfidentialite.tsx";
+
+const isAuthenticated = () => {
+  return !!localStorage.getItem("userId");
+};
 
 const router = createBrowserRouter([
   {
@@ -50,13 +61,35 @@ const router = createBrowserRouter([
         element: <Cursus />,
       },
       {
+        path: "/verify/:token",
+        element: <Token />,
+      },
+      {
+        path: "/unauthorized",
+        element: <Unauthorized />,
+      },
+
+      {
+        path: "/politique-confidentialite",
+        element: <PolitiqueConfidentialite />,
+      },
+      {
+        path: "/mentions-legales",
+        element: <MentionsLegales />,
+      },
+      {
         path: "/visiteur",
-        element: <RouteVisiteur />,
+        element: (
+          <PrivateRoute
+            element={<RouteVisiteur />}
+            isAuthenticated={isAuthenticated()}
+          />
+        ),
         errorElement: <ErrorPage />,
         children: [
           {
             path: "/visiteur",
-            element: <HomeVisiteur />,
+            element: <Home />,
           },
           {
             path: "templateTests/:idTest",
@@ -82,11 +115,21 @@ const router = createBrowserRouter([
             path: "profils",
             element: <ProfilsVisiteur />,
           },
+          {
+            path: "conference",
+            element: <Conference />,
+          },
         ],
       },
       {
         path: "/professeur",
-        element: <RouteProffeseur />,
+        element: (
+          <PrivateRoute
+            element={<RouteProffeseur />}
+            isAuthenticated={isAuthenticated()}
+            requiredRole="PROF"
+          />
+        ),
         errorElement: <ErrorPage />,
         children: [
           {
@@ -97,10 +140,7 @@ const router = createBrowserRouter([
             path: "Stats",
             element: <Stats />,
           },
-          {
-            path: "Monitoring",
-            element: <Monitoring />,
-          },
+
           {
             path: "Template",
             element: <Template />,
@@ -108,6 +148,18 @@ const router = createBrowserRouter([
           {
             path: "profils",
             element: <ProfilsProf />,
+          },
+          {
+            path: "conference",
+            element: <ConferenceProf />,
+          },
+          {
+            path: "template_1",
+            element: <Template_1 />,
+          },
+          {
+            path: "creation-test",
+            element: <CreaTest />,
           },
         ],
       },

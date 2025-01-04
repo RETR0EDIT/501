@@ -1,0 +1,75 @@
+.probleme-container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.loading {
+  font-size: 18px;
+  color: #007bff;
+}
+
+.error {
+  font-size: 18px;
+  color: #dc3545;
+}
+
+.test-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.test-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.test-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.test-item:hover {
+  background-color: #f1f1f1;
+}
+
+.test-title {
+  margin: 0;
+  font-size: 20px;
+  color: #432683;
+}
+
+.filter-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.filter-item {
+  margin: 0;
+}
+
+.filter-button {
+  background-color: #583e92;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #432683;
+}
+
+.filter-button.active {
+  background-color: #361d6b;
+}

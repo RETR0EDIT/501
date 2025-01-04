@@ -3,6 +3,7 @@ import Accounts from "../../services/Accounts";
 import "../styles/visiteur/ProfilsVisiteur.css";
 import { Upload } from "../../services/Upload";
 import ModelAccount from "../../models/ModelAccount";
+import Resume from "../utils/Resume";
 
 const ProfilsVisiteur: React.FC = () => {
   const [user, setUser] = useState<ModelAccount | null>(null);
@@ -24,7 +25,9 @@ const ProfilsVisiteur: React.FC = () => {
         setUser(response);
         setProfileImage(response.image);
       } catch (err) {
-        setError("Erreur lors de la récupération des informations de l'utilisateur.");
+        setError(
+          "Erreur lors de la récupération des informations de l'utilisateur."
+        );
       } finally {
         setIsLoading(false);
       }
@@ -34,11 +37,10 @@ const ProfilsVisiteur: React.FC = () => {
   }, []);
 
   const handleUploadSuccess = (imageUrl: string) => {
+    if (imageUrl.startsWith("/")) {
+      imageUrl = imageUrl.substring(1);
+    }
     setProfileImage(imageUrl);
-  };
-
-  const getImageUrl = (imagePath: string) => {
-    return `http://localhost:8080${imagePath}`;
   };
 
   if (isLoading) {
@@ -51,27 +53,31 @@ const ProfilsVisiteur: React.FC = () => {
 
   return (
     <div className="profils-visiteur">
-      <div className="large-section">
-        <div className="profile-circle">
-          <img
-            src={
-              profileImage
-                ? getImageUrl(profileImage)
-                : user?.image
-                ? getImageUrl(user.image)
-                : ""
-            }
-            alt="Avatar utilisateur"
-          />
+      <div className="container-visiteur">
+        <div className="large-section">
+          <div className="profile-circle">
+            <img
+              src={
+                profileImage
+                  ? `http://localhost:8080/${profileImage}`
+                  : "/default.svg"
+              }
+              alt="Avatar utilisateur"
+            />
+            <Upload
+              uploadUrl="http://localhost:8080/api/upload"
+              onUploadSuccess={handleUploadSuccess}
+            />
+          </div>
+
+          <h2 className="profile-name">{`${user?.firstname || ""} ${
+            user?.lastname || ""
+          }`}</h2>
+          <div className="divider-bar"></div>
+          <p className="role">{user?.role || "Rôle non défini"}</p>
         </div>
-        <h2 className="profile-name">{`${user?.firstname || ""} ${user?.lastname || ""}`}</h2>
-        <div className="divider-bar"></div>
-        <p className="role">{user?.role || "Rôle non défini"}</p>
-        <div className="upload-container">
-          <Upload
-            uploadUrl="http://localhost:8080/api/upload"
-            onUploadSuccess={handleUploadSuccess}
-          />
+        <div className="resume_pc">
+          <Resume />
         </div>
       </div>
       <div className="small-section">
@@ -90,6 +96,9 @@ const ProfilsVisiteur: React.FC = () => {
             <p>{user?.phone || "+33 701 44 23 65"}</p>
           </div>
         </div>
+      </div>
+      <div className="resume_phone">
+        <Resume />
       </div>
     </div>
   );

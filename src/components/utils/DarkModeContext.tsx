@@ -1,4 +1,3 @@
-// utils/DarkModeContext.tsx
 import React, { createContext, useContext, useState, useEffect } from "react";
 import "../styles/utils/darkmode.css";
 
@@ -12,10 +11,17 @@ const DarkModeContext = createContext<DarkModeContextProps | undefined>(
 );
 
 export const DarkModeProvider: React.FC = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem("darkMode", JSON.stringify(newMode));
+      return newMode;
+    });
   };
 
   useEffect(() => {

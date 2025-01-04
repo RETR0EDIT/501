@@ -1,9 +1,31 @@
+/* Assurez-vous que le conteneur principal prend toute la hauteur de l'écran */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Le conteneur principal du contenu doit prendre tout l'espace disponible */
+.main-content {
+  flex: 1;
+}
+
+/* Styles pour le footer */
 .footer-ctn {
   width: 100%;
   background-color: #432683;
+  padding: 10px 0;
 }
 
 .footer-content {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 20px 30px;
@@ -24,20 +46,23 @@ footer {
 #email {
   color: white;
 }
+
 .footer-logo {
   display: flex;
   flex-direction: column;
-
   align-items: center;
 }
+
 .footer-logo img {
+  width: 100%;
   margin-bottom: 20px;
 }
+
 .footer-social {
   padding: 0px 30px;
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .social-icons {
@@ -57,31 +82,85 @@ footer {
 
 .footer-links {
   display: flex;
-  flex-direction: row;
-  align-items: end;
-  justify-content: end;
-  text-align: left;
+  flex-direction: column;
+}
+
+.footer-link {
+  margin: 10px 0;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
 }
 
 .footer-address {
   width: 230px;
 }
+
 .footer-contact {
   width: 215px;
 }
 
-.footer-logo {
-  width: 240px;
+.footer-title {
+  width: 80%;
+  margin: auto;
+  font-family: "TT Norms Pro bold";
+  padding: 20px 30px 0 30px;
 }
 
 .footer-flex {
-  width: 65%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
   .footer-div {
+    width: 90%;
+  }
+  .footer-title {
+    width: 90%;
+  }
+  .footer-ctn {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .footer-info {
+    flex-direction: column;
+    width: auto;
+  }
+  .footer-address {
+    margin-bottom: 20px;
+  }
+  .footer-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-address,
+  .footer-contact,
+  .footer-links {
+    text-align: center;
+  }
+
+  .footer-contact {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+  }
+  .footer-contact div {
+    margin: 0 10px;
+  }
+  .footer-address {
+    width: 100%;
+  }
+  .footer-links {
+    width: 100%;
+    margin-bottom: 20px;
   }
 }
 
@@ -120,5 +199,32 @@ footer {
   }
   .footer-link {
     margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .footer-contact {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .footer-contact div {
+    margin: 10px 0;
+  }
+  .footer-address {
+    margin-bottom: 15px;
+  }
+  .footer-title h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .social-icons {
+    margin-bottom: 0px;
+  }
+  .footer-logo {
+    margin: 0;
+  }
+  .footer-social {
+    text-align: center;
   }
 }

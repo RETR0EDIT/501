@@ -15,6 +15,9 @@ const Rates = {
     Read: async () => {
         return await Get(API_URL);
     },
+    ReadByStudy: async (study: string) => {
+        return await Get(`${API_URL}/study/${study}`);
+    },
     Update: async (Data) => {
         return await Put(API_URL, Data);
     },

@@ -1,22 +1,18 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDarkMode } from "./utils/DarkModeContext";
 import "./styles/header.css";
+import Auth from "./utils/Auth-nav";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const location = useLocation();
-  const navigate = useNavigate();
+
   const userRole = localStorage.getItem("userRole");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("userRole");
-    navigate("/login");
   };
 
   return (
@@ -56,68 +52,28 @@ const Header = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/sign-in" className="nav-link" id="propos">
+            <Link to="/#apropos-section" className="nav-link" id="propos">
               À propos
             </Link>
           </li>
-          {/* <li className="nav-item">
-            <Link to="/visiteur" className="nav-link">
-              visiteur
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/professeur" className="nav-link">
-              professeur
-            </Link>
-          </li> */}
+          {(userRole === "OTHER" || userRole === "USER") && (
+            <li className="nav-item">
+              <Link to="/visiteur" className="nav-link">
+                Visiteur
+              </Link>
+            </li>
+          )}
+          {userRole === "PROF" && (
+            <li className="nav-item">
+              <Link to="/professeur" className="nav-link">
+                Professeur
+              </Link>
+            </li>
+          )}
         </ul>
         <div className="auth-section">
           <div className="div-test">
-            <ul className={`nav-list auth-nav ${isMenuOpen ? "open" : ""}`}>
-              {!userRole && location.pathname !== "/sign-in" && (
-                <li className="nav-item sign-in">
-                  <Link to="/sign-in" className="nav-link">
-                    S’inscrire
-                  </Link>
-                </li>
-              )}
-
-              {!userRole && location.pathname !== "/login" && (
-                <li className="nav-item">
-                  <Link to="/login" className="nav-link" id="login-btn">
-                    Se connecter
-                  </Link>
-                </li>
-              )}
-              {userRole && (
-                <li className="nav-item" id="profils">
-                  <Link
-                    to={
-                      userRole === "professeur"
-                        ? "/professeur/profils"
-                        : "/visiteur/profils"
-                    }
-                    className="nav-link"
-                  >
-                    <img
-                      src={isDarkMode ? "/profils_dark.svg" : "/profils.svg"}
-                      alt=""
-                    />
-                  </Link>
-                </li>
-              )}
-              {userRole && (
-                <li className="nav-item" id="logout">
-                  <a href="#" className="nav-link" onClick={handleLogout}>
-                    <img
-                      src={isDarkMode ? "/logout_dark.svg" : "/logout.svg"}
-                      alt="Déconnexion"
-                    />
-                  </a>
-                </li>
-              )}
-            </ul>
-
+            <Auth />
             <button className="theme-toggle-button" onClick={toggleDarkMode}>
               <img
                 src={isDarkMode ? "/moon.svg" : "/sun.svg"}

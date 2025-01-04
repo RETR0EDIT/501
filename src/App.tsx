@@ -12,20 +12,18 @@ export default function App() {
 
   return (
     <DarkModeProvider>
-      <div>
-        {location.pathname.startsWith("/visiteur") ? (
-          <Nav />
-        ) : location.pathname.startsWith("/professeur") ? (
-          <NavProf />
-        ) : (
-          <Header />
-        )}
+      {location.pathname.startsWith("/visiteur") ? (
+        <Nav />
+      ) : location.pathname.startsWith("/professeur") ? (
+        <NavProf />
+      ) : (
+        <Header />
+      )}
 
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <main className="main-content">
+        <Outlet />
+      </main>
+      <Footer />
     </DarkModeProvider>
   );
 }

@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 const RouteVisiteur = () => {
   return (
-    <div>
+    <>
       <Outlet />
-    </div>
+    </>
   );
 };
 

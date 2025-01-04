@@ -1,29 +1,11 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Accounts from "../services/Accounts";
 import "./styles/signin.css";
 import { useDarkMode } from "./utils/DarkModeContext";
 import ModelAccount from "../models/ModelAccount";
 
-/**
- * 
- *     id: number;
-    login: string;
-    password: string;
-    firstname: string;
-    lastname: string;
-    city: string;
-    study: string;
-    role: string;
-    phone: string;
-    image: string;
-    createdat: Date;
-    editedat: Date;
-    valid: boolean;
-    date: Date;
- */
-
 const Signin = () => {
-  var confirmPassword
   const { isDarkMode } = useDarkMode();
   const [accountData, setAccountData] = useState<ModelAccount>({
     id: 0,
@@ -40,30 +22,65 @@ const Signin = () => {
     editedat: new Date(),
     valid: false,
     date: new Date(),
+    status: "",
+    token: "",
+    validtoken: false,
   });
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
-
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === "confirmPassword") {
+      setConfirmPassword(value);
+    } else {
+      setAccountData((prevData) => ({
+        ...prevData,
+        [name]: value,
+        ...(name === "email" && { login: value }),
+      }));
+    }
+  };
+
+  const handleRoleChange = (e) => {
+    const { value } = e.target;
     setAccountData((prevData) => ({
       ...prevData,
-      [name]: value,
-      ...(name === "email" && { login: value }), // Met à jour login avec la valeur de email
+      role: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (accountData.password !== confirmPassword) {
+      setMessage("Les mots de passe ne correspondent pas");
+      return;
+    }
+    if (
+      accountData.role === "PROF" &&
+      !accountData.login.endsWith("") //@univ-eiffel.fr
+    ) {
+      setMessage(
+        "Vous devez utiliser une adresse mail de l'université pour vous inscrire en tant que professeur"
+      );
+      return;
+    }
     try {
-      let trueAccountData = await Accounts.Create(accountData);
-      /**
-       * COOKIE de true account data
-       */
-      setMessage("Compte créé avec succès");
+      const token = uuidv4();
+      const accountDataWithToken = { ...accountData, token };
+
+      let trueAccountData = await Accounts.Create(accountDataWithToken);
+      if (accountData.role === "PROF") {
+        setMessage("Compte créé avec succès. Un email vous a été envoyé.");
+      } else {
+        setMessage("Compte créé avec succès");
+      }
     } catch (err) {
-      setMessage("Erreur lors de la création du compte");
+      if (err.response && err.response.status === 409) {
+        setMessage("Adresse mail déjà utilisée");
+      } else {
+        setMessage("Erreur lors de la création du compte");
+      }
     }
   };
 
@@ -120,80 +137,144 @@ const Signin = () => {
                   />
                 </div>
               </div>
-              <div className="ctn-input">
-                <div className="input-ctn">
-                  <span className="signin-span">Email</span>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={accountData.login}
-                    onChange={handleChange}
-                    required
-                    className="signin-input"
-                  />
+              <div className={accountData.role === "PROF" ? "prof-class" : ""}>
+                <div className="ctn-input">
+                  <div className="input-ctn">
+                    <span className="signin-span">Email</span>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      value={accountData.login}
+                      onChange={handleChange}
+                      required
+                      className="signin-input"
+                    />
+                  </div>
+                  {accountData.role !== "PROF" && (
+                    <>
+                      <div className="input-ctn">
+                        <span className="signin-span">Ville</span>
+                        <input
+                          type="text"
+                          name="city"
+                          placeholder="Ville"
+                          value={accountData.city}
+                          onChange={handleChange}
+                          required
+                          className="signin-input"
+                        />
+                      </div>
+                    </>
+                  )}
                 </div>
-                <div className="input-ctn">
-                  <span className="signin-span">Ville</span>
-                  <input
-                    type="text"
-                    name="city"
-                    placeholder="Ville"
-                    value={accountData.city}
-                    onChange={handleChange}
-                    required
-                    className="signin-input"
-                  />
+                <div className="ctn-input" id="role-study">
+                  <div className="input-ctn statut">
+                    <span className="signin-span">Statut</span>
+                    <select
+                      name="role"
+                      value={accountData.role}
+                      onChange={handleRoleChange}
+                      required
+                      className="signin-input"
+                    >
+                      <option value="USER">Étudiant</option>
+                      <option value="PROF">Prof</option>
+                      <option value="OTHER">Autre</option>
+                    </select>
+                    <img
+                      className="select-icon"
+                      src={isDarkMode ? "/select_dark.svg" : "/select.svg"}
+                      alt=""
+                    />
+                  </div>
+                  {accountData.role !== "PROF" && (
+                    <>
+                      <div className="input-ctn filliere">
+                        <span className="signin-span">Filière souhaitée</span>
+                        <select
+                          name="study"
+                          value={accountData.study}
+                          onChange={handleChange}
+                          required
+                          className="signin-input"
+                        >
+                          <option value="MMI">MMI</option>
+                          <option value="GEA">GEA</option>
+                          <option value="TC">TC</option>
+                        </select>
+                        <img
+                          className="select-icon"
+                          src={isDarkMode ? "/select_dark.svg" : "/select.svg"}
+                          alt=""
+                        />
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
-              <div className="ctn-input">
-                <div className="input-ctn filliere">
-                  <span className="signin-span">Filière souhaitée</span>
-                  <input
-                    type="text"
-                    name="study"
-                    placeholder="Filière souhaitée"
-                    value={accountData.study}
-                    onChange={handleChange}
-                    required
-                    className="signin-input"
-                  />
+
+              {accountData.role !== "PROF" && (
+                <>
+                  <div className="ctn-input" id="prof-study">
+                    <div className="input-ctn" id="prof-study">
+                      <span className="signin-span">Etude en cours</span>
+                      <input
+                        type="text"
+                        name="study"
+                        placeholder="Etude en cours"
+                        value={accountData.study}
+                        onChange={handleChange}
+                        required
+                        className="signin-input"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {accountData.role !== "PROF" && (
+                <div className="ctn-input">
+                  <div className="input-ctn date">
+                    <span className="signin-span">Date de naissance</span>
+                    <input
+                      type="date"
+                      name="birthdate"
+                      placeholder="Date de naissance"
+                      value={accountData.date.toISOString().split("T")[0]}
+                      onChange={(e) => {
+                        handleChange(e);
+                        setAccountData((prevData) => ({
+                          ...prevData,
+                          date: new Date(e.target.value),
+                        }));
+                      }}
+                      required
+                      className="signin-input"
+                      id="date"
+                    />
+                    <img
+                      className="calendrier"
+                      src={
+                        isDarkMode ? "/calendrier_dark.svg" : "/calendrier.svg"
+                      }
+                      alt=""
+                    />
+                  </div>
+                  <div className="input-ctn tel">
+                    <span className="signin-span">Téléphone</span>
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Téléphone"
+                      value={accountData.phone}
+                      onChange={handleChange}
+                      required
+                      className="signin-input"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="ctn-input">
-                <div className="input-ctn date">
-                  <span className="signin-span">Date de naissance</span>
-                  <input
-                    type="date"
-                    name="birthdate"
-                    placeholder="Date de naissance"
-                    value={accountData.date.toISOString().split('T')[0]}
-                    onChange={handleChange}
-                    required
-                    className="signin-input"
-                    id="date"
-                  />
-                  <img
-                    className="calendrier"
-                    src={
-                      isDarkMode ? "/calendrier_dark.svg" : "/calendrier.svg"
-                    }
-                    alt=""
-                  />
-                </div>
-                <div className="input-ctn tel">
-                  <span className="signin-span">Téléphone</span>
-                  <input
-                    type="text"
-                    name="phone"
-                    placeholder="Téléphone"
-                    value={accountData.phone}
-                    onChange={handleChange}
-                    required
-                    className="signin-input"
-                  />
-                </div>
-              </div>
+              )}
               <div className="ctn-input">
                 <div className="input-ctn">
                   <span className="signin-span">Mot de passe</span>

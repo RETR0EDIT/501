@@ -199,4 +199,59 @@
   .elipse_2 {
     display: none;
   }
+
+  @media (max-width: 768px) {
+    .welcome-section {
+      padding: 0;
+    }
+    .welcome-title h1 {
+      font-size: 2rem;
+    }
+    .welcome-txt {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .login-section {
+      width: 100%;
+    }
+    .login-ctn {
+      min-width: auto;
+      width: 90%;
+    }
+    .login-input {
+      width: 100%;
+    }
+
+    .login-form .input-ctn {
+      width: 90%;
+      margin: 0 10px 30px 10px;
+      max-width: 100%;
+    }
+    .login-form {
+      width: 100%;
+    }
+    .login-span {
+      left: 10px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .ctn-input {
+      flex-direction: column;
+    }
+
+    .prof-class {
+      width: 100%;
+      flex-direction: column;
+    }
+    .prof-class .statut {
+      width: 90%;
+    }
+    .login_form_title {
+      width: 100%;
+    }
+  }
 }
