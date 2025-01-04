@@ -1,0 +1,80 @@
+.studies-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100vh;
+  padding: 20px 0 20px 0;
+  align-items: end;
+  background: #583e92;
+  min-width: 200px;
+}
+
+.study-button {
+  background: #6246a0;
+  width: 118px;
+  height: 118px;
+  margin-left: 2px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  color: #ffffffaf;
+}
+
+.background-button.selected {
+  background: #432683;
+}
+
+.stats-container {
+  display: flex;
+}
+
+.actions-buttons {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  background: #432683;
+  min-width: 400px;
+}
+
+.action-button {
+  background: none;
+  height: 90px;
+  margin: 10px auto;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  width: 90%;
+  color: #ffffffaf;
+}
+
+.action-button.selected-type {
+  border: 1px solid #ffffff;
+}
+
+.action-button:active {
+  border: 1px solid #ffffff;
+}
+
+.trait {
+  width: 90%;
+  margin: 10px auto;
+  height: 1px;
+  background: #ffffffaf;
+}
+
+.background-button {
+  display: flex;
+  justify-content: start;
+  width: 160px;
+  align-items: center;
+  padding: 10px;
+  border-top-left-radius: 47%;
+  border-bottom-left-radius: 47%;
+}
+.results-container {
+  width: 100%;
+  padding: 50px;
+}
+.avatar {
+  width: 100px;
+}

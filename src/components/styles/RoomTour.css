@@ -1,0 +1,99 @@
+.room-tour {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+
+.filter {
+  width: 100%;
+  background-color: #583E92;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-right: none;
+  font-family: "TT Norms Pro Regular";
+  color: white;
+  transition: width 0.3s ease;
+}
+
+.filter h2 {
+  margin-bottom: 1rem;
+}
+
+.filter ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter li {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.filter li:hover {
+  background-color: #432683;
+}
+
+.filter li.active {
+  font-weight: bold;
+  background-color: #432683;
+}
+
+.canvas-container {
+  flex: 1;
+  position: relative;
+}
+
+
+@media (min-width: 992px) {
+  .room-tour {
+    flex-direction: row;
+  }
+
+  .filter {
+    width: 20%;
+    border-right: 1px solid #ccc;
+  }
+
+  .canvas-container {
+    height: 100%;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .room-tour {
+    flex-direction: column;
+  }
+
+  .filter {
+    width: 100%;
+    border-right: none;
+  }
+
+  .canvas-container {
+    height: 70vh;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .room-tour {
+    flex-direction: column;
+  }
+
+  .filter {
+    width: 100%;
+    border-right: none;
+  }
+
+  .canvas-container {
+    height: 50vh;
+  }
+}

@@ -1,0 +1,27 @@
+.politique-confidentialite-container {
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+.politique-confidentialite-title {
+    font-family: "TT Norms Pro Bold", sans-serif;
+    font-size: 3rem;
+    color: #432683;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.politique-confidentialite-content {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.politique-confidentialite-content p {
+    margin-bottom: 20px;
+}
+
+.politique-confidentialite-content strong {
+    color: #432683;
+}

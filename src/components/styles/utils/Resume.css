@@ -1,0 +1,174 @@
+.resume-container {
+  background: #432683;
+  height: 70vh;
+  width: 100%;
+  padding: 20px;
+  color: #fff;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+.resume_pc {
+  width: 40%;
+}
+
+.resume-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-family: "TT Norms Pro Bold";
+}
+
+.no-answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 78px);
+  font-family: "TT Norms Pro Regular";
+  margin-bottom: 10px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.test-button {
+  background: #fff;
+  color: #432683;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-family: "TT Norms Pro Regular";
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.test-button:hover {
+  background: #432683;
+  color: #fff;
+}
+
+.answers-list {
+  margin-top: 20px;
+  list-style: none;
+}
+
+.answers-title {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: "TT Norms Pro Bold";
+}
+
+.test-group {
+  margin-bottom: 20px;
+}
+
+.test-title-profils {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: "TT Norms Pro Medium";
+}
+
+.answers-ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.answer-item {
+  border: 1px solid #ddd;
+  color: #432683;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-family: "TT Norms Pro Regular";
+}
+
+.answer-item p {
+  margin: 5px 0;
+  color: #432683;
+}
+
+.answer-item strong {
+  font-family: "TT Norms Pro Bold";
+  color: #432683;
+}
+.resume-container {
+  background: #432683;
+  height: 70vh;
+  width: 100%;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.resume_pc {
+  width: 40%;
+}
+
+.resume-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-family: "TT Norms Pro Bold";
+}
+
+.no-answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 78px);
+  font-family: "TT Norms Pro Regular";
+  margin-bottom: 10px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.test-button {
+  background: #fff;
+  color: #432683;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-family: "TT Norms Pro Regular";
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.test-button:hover {
+  background: #432683;
+  color: #fff;
+}
+
+.prof-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.prof-button {
+  background: #fff;
+  color: #432683;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-family: "TT Norms Pro Regular";
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.prof-button:hover {
+  background: #432683;
+  color: #fff;
+}

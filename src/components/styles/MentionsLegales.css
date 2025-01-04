@@ -1,0 +1,27 @@
+.mentions-legales-container {
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+.mentions-legales-title {
+    font-family: "TT Norms Pro Bold", sans-serif;
+    font-size: 3rem;
+    color: #432683;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mentions-legales-content {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.mentions-legales-content p {
+    margin-bottom: 20px;
+}
+
+.mentions-legales-content strong {
+    color: #432683;
+}

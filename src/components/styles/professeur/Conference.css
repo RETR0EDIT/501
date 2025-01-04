@@ -1,0 +1,212 @@
+.conference-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.conference-title {
+  font-family: "TT Norms Pro Bold", sans-serif;
+  font-size: 2.5rem;
+  color: #583e92;
+
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+
+.filter-input,
+.filter-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 20px;
+  margin-bottom: 10px;
+  font-family: "TT Norms Pro Regular", sans-serif;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: "TT Norms Pro Regular", sans-serif;
+}
+
+.filter-checkbox input {
+  margin-right: 5px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-clan {
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+  justify-content: center;
+  align-items: center;
+}
+.form-select {
+  padding: 10px;
+  border: 1px solid #432683;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  margin: 0 10px;
+  width: 236px;
+}
+
+.form-area {
+  position: relative;
+  width: 492px;
+}
+.conference-form {
+  margin: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.form-label {
+  font-family: "TT Norms Pro Regular", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  background: #fff;
+  padding: 0 5px;
+  color: #432683;
+}
+
+.form-input,
+.form-textarea {
+  padding: 10px;
+
+  border: 1px solid #432683;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.form-input {
+  margin: 0 10px;
+  width: 236px;
+}
+
+.form-textarea {
+  width: 100%;
+
+  min-height: 100px;
+  max-height: 300px;
+  resize: vertical;
+}
+.form-actions-conf {
+  display: flex;
+  justify-content: end;
+  width: 502px;
+}
+
+.form-button {
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form-button.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.form-button:not(.cancel-button) {
+  background-color: #432683;
+  color: white;
+}
+
+.conference-list {
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.conference-item {
+  margin: 5px;
+  width: 300px;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.conference-item-title {
+  font-family: "TT Norms Pro Bold", sans-serif;
+  font-size: 1.5rem;
+  color: #432683;
+}
+
+.conference-item-content,
+.conference-item-room,
+.conference-item-time,
+.conference-item-master {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.conference-item-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.conference-item-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #432683;
+  color: white;
+}
+
+.conference-item-button:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filter-input,
+  .filter-select {
+    width: 100%;
+  }
+
+  .conference-item-actions {
+    flex-direction: column;
+  }
+
+  .conference-item-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .conference-item-button:not(:last-child) {
+    margin-right: 0;
+  }
+}

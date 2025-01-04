@@ -1,0 +1,115 @@
+.cursus-container {
+  padding: 20px;
+}
+
+.GEA {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.gea-title {
+  font-family: "TT Norms Pro Bold";
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #432683;
+}
+
+.gea-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.gea-image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.gea-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.gea-text-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gea-description {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.gea-paragraph {
+  margin-bottom: 10px;
+  font-family: "TT Norms Pro Regular";
+  color: #333;
+}
+
+.gea-quiz {
+  width: 50%;
+  font-family: "TT Norms Pro Regular";
+  background-color: #e9e9e9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.gea-quiz-title {
+  font-family: "TT Norms Pro Bold";
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #432683;
+}
+
+.gea-quiz-description {
+  margin-bottom: 20px;
+  font-family: "TT Norms Pro Regular";
+  color: #333;
+}
+
+.gea-quiz-button-container {
+  text-align: center;
+}
+
+.gea-quiz-button {
+  background-color: #432683;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.gea-quiz-button:hover {
+  background-color: #321a5d;
+}
+
+@media (max-width: 768px) {
+  .gea-title {
+    font-size: 20px;
+  }
+
+  .gea-quiz-title {
+    font-size: 18px;
+  }
+
+  .gea-quiz-button {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gea-title {
+    font-size: 18px;
+  }
+
+  .gea-quiz-title {
+    font-size: 16px;
+  }
+
+  .gea-quiz-button {
+    padding: 6px 12px;
+  }
+}

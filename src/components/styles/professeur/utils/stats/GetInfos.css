@@ -1,0 +1,59 @@
+.infos-table {
+  width: 100%;
+
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.infos-container {
+  background: #432683;
+  padding-bottom: 20px;
+  height: auto;
+  border-radius: 20px;
+}
+thead {
+  height: 40px;
+  color: #fff;
+  font-family: "TT Norms Pro Bold";
+}
+
+tbody {
+  color: #fff;
+  font-family: "TT Norms Pro Regular";
+}
+
+td {
+  width: 25%;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #ffffffaf;
+}
+
+th {
+  width: 25%;
+  padding: 10px;
+  border-bottom: 1px solid #ffffffaf;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #583e92;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #8a61e4;
+}
+
+tr {
+  height: 60px;
+}
+
+.loading {
+  font-size: 18px;
+  color: #333;
+}
+
+.error {
+  color: red;
+  font-size: 18px;
+}
