@@ -3,18 +3,18 @@ import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
 import ModelRooms from "../models/ModelRooms";
-import { env } from "../../env";
-const API_URL = `${env.VITE_APP_API_URL}/rooms`;
+
+const API_URL = `${import.meta.env.VITE_API_URL}/rooms`;
 
 const Rooms = {
-  Create: async (Data) => {
+  Create: async (Data: ModelRooms) => {
     return await Post(API_URL, Data);
   },
   Read: async () => {
     return await Get(API_URL);
   },
 
-  Update: async (Data) => {
+  Update: async (Data: ModelRooms) => {
     return await Put(API_URL, Data);
   },
   Delete: async (id) => {

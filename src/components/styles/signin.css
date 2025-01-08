@@ -250,6 +250,17 @@ select.signin-input {
   width: 100%;
 }
 
+#prof-studies {
+  width: 100%;
+}
+.currentstudy {
+  width: 100%;
+}
+
+.signin-message {
+  text-align: center;
+}
+
 @media (max-width: 1500px) {
   .signin-container {
     height: 70vh;
@@ -286,11 +297,7 @@ select.signin-input {
   .signin-logo {
     display: none;
   }
-  #prof-study {
-    width: 99%;
-    position: relative;
-    margin: 0 10px 15px 5px;
-  }
+
   .welcome-section,
   .signin-section {
     margin-bottom: 40px;
@@ -318,10 +325,10 @@ select.signin-input {
     .signin-ctn {
       width: 90%;
     }
+
     .input-ctn {
       width: 90%;
       margin: 0 10px 30px 10px;
-      max-width: 223px;
     }
     .signin-form {
       width: 100%;
@@ -337,7 +344,7 @@ select.signin-input {
       flex-direction: column;
     }
     .input-ctn {
-      max-width: 100%;
+      max-width: 90%;
     }
     .prof-class {
       width: 100%;

@@ -90,44 +90,46 @@ export default function CreaTest() {
     <div className="create-test-container">
       <h1 className="create-test-title">Créer un Test</h1>
       <form onSubmit={handleSubmit} className="create-test-form">
-        <div className="form-group">
-          <label className="form-label">Titre du Test:</label>
-          <input
-            type="text"
-            name="title"
-            value={test.title}
-            onChange={(e) => handleTestChange(e)}
-            required
-            className="form-input"
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-label">Difficulté:</label>
-          <select
-            name="dificulty"
-            value={test.dificulty}
-            onChange={(e) => handleTestChange(e)}
-            className="form-select"
-            required
-          >
-            <option value="easy">Facile</option>
-            <option value="medium">Moyen</option>
-            <option value="hard">Difficile</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label className="form-label">Étude:</label>
-          <select
-            name="study"
-            value={test.study}
-            onChange={(e) => handleTestChange(e)}
-            className="form-select"
-            required
-          >
-            <option value="GEA">GEA</option>
-            <option value="TC">TC</option>
-            <option value="MMI">MMI</option>
-          </select>
+        <div className="test-group">
+          <div className="form-group">
+            <label className="form-label">Titre du Test:</label>
+            <input
+              type="text"
+              name="title"
+              value={test.title}
+              onChange={(e) => handleTestChange(e)}
+              required
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Difficulté:</label>
+            <select
+              name="dificulty"
+              value={test.dificulty}
+              onChange={(e) => handleTestChange(e)}
+              className="form-select"
+              required
+            >
+              <option value="easy">Facile</option>
+              <option value="medium">Moyen</option>
+              <option value="hard">Difficile</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label className="form-label">Étude:</label>
+            <select
+              name="study"
+              value={test.study}
+              onChange={(e) => handleTestChange(e)}
+              className="form-select"
+              required
+            >
+              <option value="GEA">GEA</option>
+              <option value="TC">TC</option>
+              <option value="MMI">MMI</option>
+            </select>
+          </div>
         </div>
         {questions.map((question, index) => (
           <div key={index} className="question-group">

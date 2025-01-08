@@ -19,7 +19,7 @@ import RouteProffeseur from "./components/professeur/Route.tsx";
 
 import Stats from "./components/professeur/Stats";
 import Template from "./components/professeur/Template";
-import HomeProf from "./components/professeur/Home.tsx";
+
 import ProfilsVisiteur from "./components/visiteur/ProfilsVisiteur.tsx";
 import ProfilsProf from "./components/professeur/ProfilsProf.tsx";
 import TemplateTest from "./components/visiteur/TemplateTest.tsx";
@@ -83,6 +83,7 @@ const router = createBrowserRouter([
           <PrivateRoute
             element={<RouteVisiteur />}
             isAuthenticated={isAuthenticated()}
+            requiredRoles={["USER", "OTHER"]}
           />
         ),
         errorElement: <ErrorPage />,
@@ -127,14 +128,14 @@ const router = createBrowserRouter([
           <PrivateRoute
             element={<RouteProffeseur />}
             isAuthenticated={isAuthenticated()}
-            requiredRole="PROF"
+            requiredRoles="PROF"
           />
         ),
         errorElement: <ErrorPage />,
         children: [
           {
             path: "/professeur",
-            element: <HomeProf />,
+            element: <Home />,
           },
           {
             path: "Stats",

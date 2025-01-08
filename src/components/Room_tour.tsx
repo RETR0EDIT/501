@@ -5,7 +5,7 @@ import { Vector3 } from "three";
 import "./styles/RoomTour.css";
 
 const IUTModel = () => {
-  const { scene } = useGLTF("/assets/models/saeiut.glb");
+  const { scene } = useGLTF("/assets/models/saeiut1.glb");
   return <primitive object={scene} />;
 };
 

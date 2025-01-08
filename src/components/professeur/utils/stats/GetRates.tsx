@@ -34,23 +34,23 @@ const GetRates: React.FC<GetInfosProps> = ({ study }) => {
     return <div className="error">{error}</div>;
   }
   return (
-    <div>
-      <table>
+    <div className="infos-container">
+      <table className="infos-table">
         <thead>
           <tr>
             <td>Nom</td>
             <td>Prenom</td>
-            <td>Question</td>
+            <td>Test</td>
             <td>Note</td>
           </tr>
         </thead>
         <tbody>
           {RatesList.map((Rates) => (
             <tr key={Rates.account.id}>
-              <td>{Rates.account.lastname}</td>
+              <td>{Rates.account.firstname}</td>
               <td>{Rates.account.lastname}</td>
               <td>{Rates.test.title}</td>
-              <td>{Rates.note}/15</td>
+              <td>{Rates.note}/10</td>
             </tr>
           ))}
         </tbody>

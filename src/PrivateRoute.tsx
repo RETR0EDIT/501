@@ -1,15 +1,14 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-const PrivateRoute = ({ element, isAuthenticated, requiredRole }) => {
-  const userRole = localStorage.getItem("userRole"); // Assurez-vous que le rôle de l'utilisateur est stocké dans le localStorage
-
+const PrivateRoute = ({ element, isAuthenticated, requiredRoles }) => {
+  const userRole = localStorage.getItem("userRole");
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
 
-  if (requiredRole && userRole !== requiredRole) {
-    return <Navigate to="/unauthorized" />; // Redirigez vers une page non autorisée si le rôle ne correspond pas
+  if (requiredRoles && !requiredRoles.includes(userRole)) {
+    return <Navigate to="/unauthorized" />;
   }
 
   return element;

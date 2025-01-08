@@ -22,13 +22,11 @@ const NavProf = () => {
       <div className="nav-ctn">
         <ul className={`nav-list main-nav ${isMenuOpen ? "open" : ""}`}>
           <li className="nav-item logo-item">
-            <Link to="/">
-              <img src="/logo_jpo.svg" alt="logo jpo" className="jpo_logo" />
-            </Link>
+            <img src="/logo_jpo.svg" alt="logo jpo" className="jpo_logo" />
           </li>
           <li className="nav-item">
             <Link to="/professeur" className="nav-link">
-              Home
+              Accueil
             </Link>
           </li>
           <li className="nav-item">
@@ -38,13 +36,18 @@ const NavProf = () => {
           </li>
           <li className="nav-item">
             <Link to="/professeur/template" className="nav-link">
-              template
+              Template
             </Link>
           </li>
 
           <li className="nav-item">
             <Link to="/professeur/conference" className="nav-link">
               Conférence
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/professeur/creation-test" className="nav-link">
+              Test
             </Link>
           </li>
         </ul>

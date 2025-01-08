@@ -21,6 +21,7 @@ export default function App() {
       )}
 
       <main className="main-content">
+
         <Outlet />
       </main>
       <Footer />

@@ -34,28 +34,33 @@ export default function Conference() {
   return (
     <div>
       <h1 className="conftitle">Conférences</h1>
-      <table className="conference-table">
-        <thead>
-          <tr>
-            <th>Titre</th>
-            <th>Heure début</th>
-            <th>Heure fin</th>
-            <th>Salle</th>
-            <th>Maître de conférence</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ConferencesList.map((conference) => (
-            <tr key={conference.id}>
-              <td data-label="Titre">{conference.title}</td>
-              <td data-label="Heure début">{conference.tstart}</td>
-              <td data-label="Heure fin">{conference.tend}</td>
-              <td data-label="Salle">{conference.room.name}</td>
-              <td data-label="Maître de conférence">{conference.master}</td>
+      <div className="infos-container">
+        <table className="conference-table">
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>Heure début</th>
+              <th>Heure fin</th>
+              <th>Salle</th>
+              <th>Maître de conférence</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {ConferencesList.map((conference) => (
+              <tr key={conference.id}>
+                <td data-label="Titre">{conference.title}</td>
+                <td data-label="Heure début">{conference.tstart}</td>
+                <td data-label="Heure fin">{conference.tend}</td>
+                <td data-label="Salle">{conference.room.name}</td>
+                <td data-label="Maître de conférence">
+                  {conference.account.firstname} {conference.account.lastname}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      ''
     </div>
   );
 }

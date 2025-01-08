@@ -23,13 +23,11 @@ const Nav = () => {
       <div className="nav-ctn">
         <ul className={`nav-list main-nav ${isMenuOpen ? "open" : ""}`}>
           <li className="nav-item logo-item">
-            <Link to="/">
-              <img src="/logo_jpo.svg" alt="logo jpo" className="jpo_logo" />
-            </Link>
+            <img src="/logo_jpo.svg" alt="logo jpo" className="jpo_logo" />
           </li>
           <li className="nav-item">
             <Link to="/visiteur" className="nav-link">
-              Home
+              Accueil
             </Link>
           </li>
           <li className="nav-item" id="my_results">
@@ -39,12 +37,12 @@ const Nav = () => {
           </li>
           <li className="nav-item">
             <Link to="/visiteur/probleme" className="nav-link">
-              Probleme
+              Test
             </Link>
           </li>
-          <li className="nav-item" id="room_tour">
-            <Link to="/visiteur/room_tour" className="nav-link">
-              Room tour
+          <li className="nav-item">
+            <Link to="/visiteur/room_tour" className="nav-link" id="virtuel">
+              Visite virtuelle
             </Link>
           </li>
           <li className="nav-item">

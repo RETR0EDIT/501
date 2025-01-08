@@ -84,10 +84,6 @@ body.dark-mode .jpo-button {
   color: #2a2a2a;
 }
 
-body.dark-mode {
-  background: #2a2a2a;
-}
-
 body.dark-mode .apropos-section {
   background: #2a2a2a;
 }
@@ -226,17 +222,17 @@ body.dark-mode .conference-title {
 
 body.dark-mode .form-label {
   color: #fff;
-  background-color: #121212;
+  background-color: #2a2a2a;
 }
 
 body.dark-mode .form-input {
-  background-color: #121212;
+  background-color: #2a2a2a;
   color: #fff;
   border: 1px solid #fff;
 }
 
 body.dark-mode .form-select {
-  background-color: #121212;
+  background-color: #2a2a2a;
   color: #fff;
   border: 1px solid #fff;
 }
@@ -361,4 +357,50 @@ body.dark-mode .test-finished-list {
 
 body.dark-mode .test-finished-subtitle {
   color: #2a2a2a;
+}
+
+body.dark-mode .create-test-container {
+  background: #fff;
+  color: #2a2a2a;
+}
+
+body.dark-mode .create-test-title {
+  color: #2a2a2a;
+}
+
+body.dark-mode .test-group {
+  background: #2a2a2a;
+}
+
+body.dark-mode .question-group {
+  background: #2a2a2a;
+}
+
+body.dark-mode .question-title {
+  color: #fff;
+}
+
+body.dark-mode .form-select-conf {
+  background: #121212;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+body.dark-mode .form-textarea-conf {
+  background: #121212;
+  border: 1px solid #fff;
+}
+
+body.dark-mode .form-label-conf {
+  background: #121212;
+}
+
+body.dark-mode .form-input-conf {
+  background: #121212;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+body.dark-mode .form-label-conf {
+  color: #fff;
 }

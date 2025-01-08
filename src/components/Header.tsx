@@ -7,7 +7,7 @@ import Auth from "./utils/Auth-nav";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const location = useLocation();
+  // const location = useLocation();
 
   const userRole = localStorage.getItem("userRole");
 

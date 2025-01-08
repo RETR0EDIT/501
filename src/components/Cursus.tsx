@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./styles/cursus.css";
 
 export default function Cursus() {
+
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
-    <div className="cursus-container">
+    <section className="cursus-container">
+      <section id="mmi">
+
       {/* Title Section */}
       <h1 className="main-title">
         GESTION DES ENTREPRISES ET DES ADMINISTRATIONS
@@ -47,7 +61,9 @@ export default function Cursus() {
             vous êtes prêt à relever les défis du secteur !
           </p>
           <div className="button-section">
+          <Link to="/visiteur/probleme">
           <button className="cta-button">Accedez ici</button>
+          </Link>
           </div>
         </div>
       </div>
@@ -96,7 +112,8 @@ export default function Cursus() {
           </ul>
         </div>
       </div>
-
+      </section>
+      <section id="gea">
        {/* Title Section */}
        <h1 className="main-title">
        MÉTIERS DU MULTIMÉDIA ET DE L'INTERNET
@@ -117,7 +134,9 @@ export default function Cursus() {
            Testez vos connaissances sur le développement web, le design et la communication digitale !
           </p>
           <div className="button-section">
+          <Link to="/visiteur/probleme">
           <button className="cta-button">Accedez ici</button>
+          </Link>
           </div>
         </div>
 
@@ -180,7 +199,8 @@ export default function Cursus() {
         </div>
 
       </div>
-
+      </section>
+      <section id="tc">
        {/* Title Section */}
        <h1 className="main-title">
         TECHNIQUES DE COMMERCIALISATION
@@ -218,7 +238,9 @@ export default function Cursus() {
           Êtes-vous prêt à briller dans le domaine du marketing et de la relation client ?
           </p>
           <div className="button-section">
+          <Link to="/visiteur/probleme">
           <button className="cta-button">Accedez ici</button>
+          </Link>
           </div>
         </div>
       </div>
@@ -281,7 +303,8 @@ export default function Cursus() {
             </ul>
           </div>
       </div>
-    </div>
+      </section>
+    </section>
 
     
 

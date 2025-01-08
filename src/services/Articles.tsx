@@ -2,10 +2,10 @@ import Delete from "./CRUD/Delete";
 import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
-import { env } from "../../env";
+
 import ModelArticle from "../models/ModelArticle";
 
-const API_URL = `${env.VITE_APP_API_URL}/articles`;
+const API_URL = `${import.meta.env.VITE_API_URL}/articles`;
 
 const Articles = {
   Create: async (Data: ModelArticle) => {

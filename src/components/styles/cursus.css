@@ -16,7 +16,7 @@
   color: #432683;
   text-align: left;
   max-width: 57%;
-  margin-top: 200px;
+  margin-top: 200px !important;
 }
 
 .image-container {
@@ -83,39 +83,59 @@
   margin-top: 20px;
 }
 
-.button-section {
-  text-align: right;
-}
+  .button-section{
+    text-align: right;
+  }
+  
 
-.cta-button {
-  padding: 12px 24px;
-  background-color: #432683;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  width: 150px;
-}
+  .cta-button {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #654ea3, #432683); /* Dégradé moderne */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 150px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease; /* Transition fluide */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Légère ombre */
+  }
+  
+  .cta-button:hover {
+    background: linear-gradient(45deg, #7159c1, #563d92); /* Dégradé plus clair */
+    transform: translateY(-3px) scale(1.05); /* Légère élévation et agrandissement */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Ombre plus marquée */
+  }
+  
+  .cta-button:active {
+    transform: translateY(2px) scale(0.98); /* Effet d’enfoncement */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Réduction de l'ombre */
+    background: linear-gradient(45deg, #563d92, #432683); /* Retour à une couleur intense */
+  }
+  
 
-.parcours-title {
-  font-size: 2rem;
-  color: #432683;
-  text-align: left;
-  margin-top: 24px;
-}
-
-.parcours-container {
-  margin-top: 100px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 30px;
-  row-gap: 100px;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
-  justify-items: center;
-}
+  
+  .parcours-title {
+    font-size: 2rem;
+    color: #432683;
+    text-align: left;
+    margin-top: 24px;
+  }
+  
+  .parcours-container {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 100px;
+    justify-content: center; 
+    width: 100%; 
+    align-items: center;
+    justify-items: center;
+    
+  }
 
 .parcours-card2 {
   justify-items: center;
@@ -145,7 +165,7 @@
 
 .card-li {
   text-align: left;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 50px;
 }
 
@@ -190,6 +210,10 @@
   .card-li {
     font-size: 1rem !important;
     margin-bottom: 30px;
+  }
+
+  .parcours-card {
+    max-height: 500px;
   }
 }
 

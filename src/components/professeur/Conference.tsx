@@ -323,7 +323,7 @@ const ConferenceForm: React.FC<ConferenceFormProps> = ({
     <form onSubmit={handleSubmit} className="conference-form">
       <div className="form-clan">
         <div className="form-group">
-          <label htmlFor="title" className="form-label">
+          <label htmlFor="title" className="form-label-conf">
             Titre
           </label>
           <input
@@ -333,11 +333,11 @@ const ConferenceForm: React.FC<ConferenceFormProps> = ({
             onChange={handleChange}
             placeholder="Titre"
             required
-            className="form-input"
+            className="form-input-conf"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="room" className="form-label">
+          <label htmlFor="room" className="form-label-conf">
             Salle
           </label>
           <select
@@ -345,7 +345,7 @@ const ConferenceForm: React.FC<ConferenceFormProps> = ({
             value={formData.room.id}
             onChange={handleRoomChange}
             required
-            className="form-select"
+            className="form-select-conf"
           >
             <option value="">Sélectionner une salle</option>
             {rooms.map((room) => (
@@ -358,7 +358,7 @@ const ConferenceForm: React.FC<ConferenceFormProps> = ({
       </div>
       <div className="form-clan">
         <div className="form-group">
-          <label htmlFor="tstart" className="form-label">
+          <label htmlFor="tstart" className="form-label-conf">
             Début
           </label>
           <input
@@ -367,13 +367,13 @@ const ConferenceForm: React.FC<ConferenceFormProps> = ({
             value={formData.tstart}
             onChange={handleChange}
             required
-            className="form-input"
+            className="form-input-conf"
             min="08:00"
             max="18:00"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="tend" className="form-label">
+          <label htmlFor="tend" className="form-label-conf">
             Fin
           </label>
           <input
@@ -382,7 +382,7 @@ const ConferenceForm: React.FC<ConferenceFormProps> = ({
             value={formData.tend}
             onChange={handleChange}
             required
-            className="form-input"
+            className="form-input-conf"
             min="08:00"
             max="18:00"
           />
@@ -390,7 +390,7 @@ const ConferenceForm: React.FC<ConferenceFormProps> = ({
       </div>
       <div className="form-clan">
         <div className="form-area">
-          <label htmlFor="content" className="form-label">
+          <label htmlFor="content" className="form-label-conf">
             Contenu
           </label>
           <textarea
@@ -399,7 +399,7 @@ const ConferenceForm: React.FC<ConferenceFormProps> = ({
             onChange={handleChange}
             placeholder="Contenu"
             required
-            className="form-textarea"
+            className="form-textarea-conf"
           />
         </div>
       </div>

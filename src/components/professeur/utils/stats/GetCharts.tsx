@@ -41,7 +41,7 @@ const GetCharts: React.FC<GetChartsProps> = ({ study }) => {
         setRatesList(response);
         const notes = response.map((rate) => rate.note);
         setNoteList(notes);
-        const labels = response.map((rate) => rate.test.title);
+        const labels = response.map((rate) => rate.test.title + " MMI ");
         setLabelList(labels);
       } catch (err) {
         setError("Erreur lors de la récupération des tests.");

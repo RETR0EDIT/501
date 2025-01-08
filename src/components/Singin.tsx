@@ -24,6 +24,7 @@ const Signin = () => {
     date: new Date(),
     status: "",
     token: "",
+    currentstudy: "",
     validtoken: false,
   });
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -58,7 +59,7 @@ const Signin = () => {
     }
     if (
       accountData.role === "PROF" &&
-      !accountData.login.endsWith("") //@univ-eiffel.fr
+      !accountData.login.endsWith("@univ-eiffel.fr") //@univ-eiffel.fr
     ) {
       setMessage(
         "Vous devez utiliser une adresse mail de l'université pour vous inscrire en tant que professeur"
@@ -152,20 +153,18 @@ const Signin = () => {
                     />
                   </div>
                   {accountData.role !== "PROF" && (
-                    <>
-                      <div className="input-ctn">
-                        <span className="signin-span">Ville</span>
-                        <input
-                          type="text"
-                          name="city"
-                          placeholder="Ville"
-                          value={accountData.city}
-                          onChange={handleChange}
-                          required
-                          className="signin-input"
-                        />
-                      </div>
-                    </>
+                    <div className="input-ctn">
+                      <span className="signin-span">Ville</span>
+                      <input
+                        type="text"
+                        name="city"
+                        placeholder="Ville"
+                        value={accountData.city}
+                        onChange={handleChange}
+                        required
+                        className="signin-input"
+                      />
+                    </div>
                   )}
                 </div>
                 <div className="ctn-input" id="role-study">
@@ -189,48 +188,44 @@ const Signin = () => {
                     />
                   </div>
                   {accountData.role !== "PROF" && (
-                    <>
-                      <div className="input-ctn filliere">
-                        <span className="signin-span">Filière souhaitée</span>
-                        <select
-                          name="study"
-                          value={accountData.study}
-                          onChange={handleChange}
-                          required
-                          className="signin-input"
-                        >
-                          <option value="MMI">MMI</option>
-                          <option value="GEA">GEA</option>
-                          <option value="TC">TC</option>
-                        </select>
-                        <img
-                          className="select-icon"
-                          src={isDarkMode ? "/select_dark.svg" : "/select.svg"}
-                          alt=""
-                        />
-                      </div>
-                    </>
+                    <div className="input-ctn filliere">
+                      <span className="signin-span">Filière souhaitée</span>
+                      <select
+                        name="study"
+                        value={accountData.study}
+                        onChange={handleChange}
+                        required
+                        className="signin-input"
+                      >
+                        <option value="MMI">MMI</option>
+                        <option value="GEA">GEA</option>
+                        <option value="TC">TC</option>
+                      </select>
+                      <img
+                        className="select-icon"
+                        src={isDarkMode ? "/select_dark.svg" : "/select.svg"}
+                        alt=""
+                      />
+                    </div>
                   )}
                 </div>
               </div>
 
               {accountData.role !== "PROF" && (
-                <>
-                  <div className="ctn-input" id="prof-study">
-                    <div className="input-ctn" id="prof-study">
-                      <span className="signin-span">Etude en cours</span>
-                      <input
-                        type="text"
-                        name="study"
-                        placeholder="Etude en cours"
-                        value={accountData.study}
-                        onChange={handleChange}
-                        required
-                        className="signin-input"
-                      />
-                    </div>
+                <div className="ctn-input" id="prof-study">
+                  <div className="input-ctn" id="prof-studies">
+                    <span className="signin-span">Etude en cours</span>
+                    <input
+                      type="text"
+                      name="currentstudy"
+                      placeholder="Etude en cours"
+                      value={accountData.currentstudy}
+                      onChange={handleChange}
+                      required
+                      className="signin-input currentstudy"
+                    />
                   </div>
-                </>
+                </div>
               )}
 
               {accountData.role !== "PROF" && (
@@ -252,6 +247,13 @@ const Signin = () => {
                       required
                       className="signin-input"
                       id="date"
+                      max={
+                        new Date(
+                          new Date().setFullYear(new Date().getFullYear() - 15)
+                        )
+                          .toISOString()
+                          .split("T")[0]
+                      }
                     />
                     <img
                       className="calendrier"
@@ -264,7 +266,7 @@ const Signin = () => {
                   <div className="input-ctn tel">
                     <span className="signin-span">Téléphone</span>
                     <input
-                      type="text"
+                      type="tel"
                       name="phone"
                       placeholder="Téléphone"
                       value={accountData.phone}

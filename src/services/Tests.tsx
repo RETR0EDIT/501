@@ -3,8 +3,8 @@ import Get from "./CRUD/Get";
 import Post from "./CRUD/Post";
 import Put from "./CRUD/Put";
 import ModelTest from "../models/ModelTest";
-import { env } from "../../env";
-const API_URL = `${env.VITE_APP_API_URL}/tests`;
+
+const API_URL = `${import.meta.env.VITE_API_URL}/tests`;
 
 const Tests = {
   Create: async (Data: ModelTest) => {
