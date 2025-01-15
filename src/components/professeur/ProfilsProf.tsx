@@ -11,6 +11,9 @@ const ProfilsProf: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [profileImage, setProfileImage] = useState<string | null>(null);
 
+  const API_URL = `${import.meta.env.VITE_API_URL}/upload`;
+  const uploadUrl = import.meta.env.VITE_UPLOAD_API_URL;
+
   useEffect(() => {
     const fetchUser = async () => {
       const userId = localStorage.getItem("userId");
@@ -36,6 +39,10 @@ const ProfilsProf: React.FC = () => {
     fetchUser();
   }, []);
 
+  useEffect(() => {
+    console.log("uploadUrl:", uploadUrl);
+  }, [uploadUrl]);
+
   const handleUploadSuccess = (imageUrl: string) => {
     setProfileImage(imageUrl);
   };
@@ -48,8 +55,6 @@ const ProfilsProf: React.FC = () => {
     return <div className="error">{error}</div>;
   }
 
-  const API_URL = `${import.meta.env.VITE_API_URL}/upload`;
-  const Upload_URL = `${import.meta.env.UPLOAD_API_URL}/`;
   return (
     <div className="profils-visiteur">
       <div className="container-prof">
@@ -57,7 +62,7 @@ const ProfilsProf: React.FC = () => {
           <div className="profile-circle">
             <img
               src={
-                profileImage ? `${Upload_URL}${profileImage}` : `/default.svg`
+                profileImage ? `${uploadUrl}/${profileImage}` : `/default.svg`
               }
               alt="Avatar utilisateur"
             />
@@ -94,7 +99,6 @@ const ProfilsProf: React.FC = () => {
       <div className="resume_phone">
         <Resume />
       </div>
-      l
     </div>
   );
 };
