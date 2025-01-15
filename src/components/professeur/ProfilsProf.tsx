@@ -48,7 +48,7 @@ const ProfilsProf: React.FC = () => {
     return <div className="error">{error}</div>;
   }
 
-  const API_URL = `${import.meta.env.VITE_API_URL}/uploads`;
+  const API_URL = `${import.meta.env.VITE_API_URL}/upload`;
 
   return (
     <div className="profils-visiteur">
