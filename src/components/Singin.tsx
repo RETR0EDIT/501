@@ -59,7 +59,8 @@ const Signin = () => {
     }
     if (
       accountData.role === "PROF" &&
-      !accountData.login.endsWith("@univ-eiffel.fr") //@univ-eiffel.fr
+      !accountData.login.endsWith("@univ-eiffel.fr") &&
+      !accountData.login.endsWith("@edu.univ-eiffel.fr") //for test
     ) {
       setMessage(
         "Vous devez utiliser une adresse mail de l'université pour vous inscrire en tant que professeur"
