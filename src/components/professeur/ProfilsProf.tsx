@@ -48,17 +48,7 @@ const ProfilsProf: React.FC = () => {
     return <div className="error">{error}</div>;
   }
 
-
-    const API_URL = `${import.meta.env.VITE_API_URL}/uploads`;
-  
-  const App: React.FC = () => {
-    const handleUploadSuccess = (imageUrl: string) => {
-      console.log("Image uploaded successfully:", imageUrl);
-    };
-  
-    const handleUploadError = (error: string) => {
-      console.error("Error uploading image:", error);
-    };
+  const API_URL = `${import.meta.env.VITE_API_URL}/uploads`;
 
   return (
     <div className="profils-visiteur">
@@ -73,10 +63,7 @@ const ProfilsProf: React.FC = () => {
               }
               alt="Avatar utilisateur"
             />
-            <Upload
-              uploadUrl={API_URL}
-              onUploadSuccess={handleUploadSuccess}
-            />
+            <Upload uploadUrl={API_URL} onUploadSuccess={handleUploadSuccess} />
           </div>
 
           <h2 className="profile-name">{`${user?.firstname || ""} ${

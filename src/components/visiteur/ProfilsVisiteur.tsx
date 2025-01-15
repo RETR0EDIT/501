@@ -53,16 +53,6 @@ const ProfilsVisiteur: React.FC = () => {
 
   const API_URL = `${import.meta.env.VITE_API_URL}/uploads`;
 
-const App: React.FC = () => {
-  const handleUploadSuccess = (imageUrl: string) => {
-    console.log("Image uploaded successfully:", imageUrl);
-  };
-
-  const handleUploadError = (error: string) => {
-    console.error("Error uploading image:", error);
-  };
-
-
   return (
     <div className="profils-visiteur">
       <div className="container-visiteur">
