@@ -49,7 +49,7 @@ const ProfilsProf: React.FC = () => {
   }
 
   const API_URL = `${import.meta.env.VITE_API_URL}/upload`;
-
+  const Upload_URL = `${import.meta.env.UPLOAD_API_URL}/`;
   return (
     <div className="profils-visiteur">
       <div className="container-prof">
@@ -57,9 +57,7 @@ const ProfilsProf: React.FC = () => {
           <div className="profile-circle">
             <img
               src={
-                profileImage
-                  ? `http://localhost:8080/uploads/${profileImage}`
-                  : `/default.svg`
+                profileImage ? `${Upload_URL}${profileImage}` : `/default.svg`
               }
               alt="Avatar utilisateur"
             />
