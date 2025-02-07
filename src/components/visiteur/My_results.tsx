@@ -73,11 +73,12 @@ const Myresult: React.FC = () => {
               <li key={result.id} className="answer-item-result">
                 <span>Question:</span> {result.question.title}
                 <br />
-                <span>Réponse donnée:</span> {result.content}
+                <div className="my-result__content">
+                  <p className="result-paragraph">Réponse donnée: </p>
+                  <strong className="result-content">{result.content}</strong>
+                </div>
                 <br />
-                <span>Réponse correcte:</span> {result.question.pr}
-                <br />
-                <span>Est-ce correct:</span> {result.isvalid ? "Oui" : "Non"}
+                <span>Réponse:</span> {result.isvalid ? "Correct" : "Incorrect"}
               </li>
             ))}
           </ul>

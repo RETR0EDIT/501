@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import Accounts from "../../services/Accounts";
 import GetInfos from "./utils/stats/GetInfos";
 import GetCharts from "./utils/stats/GetCharts";
@@ -16,6 +17,7 @@ export default function Stats() {
   const [selectedStudy2, setSelectedStudy2] = useState<string | null>(null);
   const [selectedAction, setSelectedAction] = useState<string | null>("Infos");
   const [showActions, setShowActions] = useState<boolean>(true);
+  const actionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -35,6 +37,26 @@ export default function Stats() {
 
     fetchStats();
   }, []);
+
+  useEffect(() => {
+    if (!showActions && actionsRef.current) {
+      gsap.to(actionsRef.current, {
+        x: -400,
+
+        duration: 0.4,
+        display: "none",
+        zIndex: -1,
+      });
+    } else if (showActions && actionsRef.current) {
+      gsap.to(actionsRef.current, {
+        x: 0,
+
+        duration: 0.4,
+        display: "flex",
+        zIndex: 1,
+      });
+    }
+  }, [showActions]);
 
   if (loading) {
     return <div className="loading">Chargement des tests...</div>;
@@ -85,37 +107,35 @@ export default function Stats() {
         ))}
       </div>
 
-      {showActions && (
-        <div className="actions-buttons">
-          <button
-            onClick={() => handleActionClick("Infos")}
-            className={`action-button ${
-              selectedAction === "Infos" ? "selected-type" : ""
-            }`}
-          >
-            Voir les informations sur les futurs étudiants
-          </button>
-          <div className="trait"></div>
-          <button
-            onClick={() => handleActionClick("Resultats")}
-            className={`action-button ${
-              selectedAction === "Resultats" ? "selected-type" : ""
-            }`}
-          >
-            Voir les résultats de chaque personne
-          </button>
-          <div className="trait"></div>
-          <button
-            onClick={() => handleActionClick("Taux")}
-            className={`action-button ${
-              selectedAction === "Taux" ? "selected-type" : ""
-            }`}
-          >
-            Taux de réussite de chaque questions
-          </button>
-          <div className="trait"></div>
-        </div>
-      )}
+      <div ref={actionsRef} className="actions-buttons">
+        <button
+          onClick={() => handleActionClick("Infos")}
+          className={`action-button ${
+            selectedAction === "Infos" ? "selected-type" : ""
+          }`}
+        >
+          Voir les informations sur les futurs étudiants
+        </button>
+        <div className="trait"></div>
+        <button
+          onClick={() => handleActionClick("Resultats")}
+          className={`action-button ${
+            selectedAction === "Resultats" ? "selected-type" : ""
+          }`}
+        >
+          Voir les résultats de chaque personne
+        </button>
+        <div className="trait"></div>
+        <button
+          onClick={() => handleActionClick("Taux")}
+          className={`action-button ${
+            selectedAction === "Taux" ? "selected-type" : ""
+          }`}
+        >
+          Taux de réussite de chaque questions
+        </button>
+        <div className="trait"></div>
+      </div>
 
       <div className="results-container">
         {action === "Infos" && <GetInfos key={study} study={study} />}

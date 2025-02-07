@@ -1,5 +1,5 @@
 .probleme-container {
-  padding: 20px;
+
 }
 
 .title {
@@ -20,6 +20,10 @@
 .test-list {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .test-link {
@@ -28,11 +32,13 @@
 }
 
 .test-item {
-  margin-bottom: 10px;
-  padding: 10px;
+  flex: 1 1 calc(30% - 20px); /* Slightly larger cards with equal width */
+  margin-bottom: 20px;
+  padding: 20px; /* Increase padding for larger appearance */
   border: 1px solid #ddd;
   border-radius: 4px;
   transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .test-item:hover {
@@ -41,15 +47,17 @@
 
 .test-title {
   margin: 0;
-  font-size: 20px;
+  font-size: 2rem; /* Augmente encore la taille de la police */
   color: #432683;
+  text-align: center; /* Centre le texte */
 }
 
 .filter-list {
   list-style-type: none;
-  padding: 0;
+  padding: 0 20px; /* Ajoute du padding pour éloigner le filtre de la bordure */
   display: flex;
   gap: 10px;
+  margin: 20px 0; /* Add margin to the top and bottom */
 }
 
 .filter-item {
@@ -72,4 +80,14 @@
 
 .filter-button.active {
   background-color: #361d6b;
+}
+
+.cnt-title {
+  background-color: #F9F9F9;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-shadow: 0 4px 2px -2px gray;
 }

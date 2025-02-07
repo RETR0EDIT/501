@@ -141,6 +141,9 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
+}
+
+.auth-page {
   width: 530px;
 }
 #virtuel {

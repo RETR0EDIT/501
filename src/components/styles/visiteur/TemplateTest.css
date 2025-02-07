@@ -125,6 +125,37 @@
   background: #e0a7f0;
 }
 
+.correct-answer {
+  background-color: #e3f2db;
+}
+
+.incorrect-answer {
+  background-color: #fae0e0;
+}
+
+.answer-text {
+  font-family: "TT Norms Pro bold";
+  margin-right: 10px;
+}
+
+.answer-result {
+  font-family: "TT Norms Pro bold";
+}
+
+.answer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.correct-answer-text {
+  color: #3ca702;
+}
+
+.incorrect-answer-text {
+  color: #dc2323;
+}
+
 @media (max-width: 900px) {
   .answer {
     width: 90%;
@@ -181,6 +212,11 @@
   }
 }
 
+.test-already-done-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .test-already-done,
 .test-finished {
   background-color: #f9f9f9;
@@ -188,8 +224,8 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin: 20px auto;
-  max-width: 800px;
+
+  width: 100%;
 }
 
 .test-already-done-title,
@@ -214,6 +250,7 @@
 
 .test-already-done-item,
 .test-finished-item {
+  padding: 15px;
   font-size: 18px;
   margin-bottom: 10px;
 }
@@ -221,7 +258,7 @@
 .finish-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #432683;
   color: white;
   text-decoration: none;
   border-radius: 4px;
@@ -229,5 +266,17 @@
 }
 
 .finish-button:hover {
-  background-color: #0056b3;
+  background-color: #5f3f9f;
+}
+
+@media (max-width: 768px) {
+  .test-already-done-container {
+    max-width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 500px) {
+  .answer-container {
+    flex-direction: column;
+  }
 }

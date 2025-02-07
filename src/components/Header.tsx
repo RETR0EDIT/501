@@ -8,6 +8,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   // const location = useLocation();
+  const isAuthPage =
+    location.pathname === "/login" || location.pathname === "/sign-in";
 
   const userRole = localStorage.getItem("userRole");
 
@@ -72,7 +74,7 @@ const Header = () => {
           )}
         </ul>
         <div className="auth-section">
-          <div className="div-test">
+          <div className={`div-test ${isAuthPage ? "auth-page" : ""}`}>
             <Auth />
             <button className="theme-toggle-button" onClick={toggleDarkMode}>
               <img

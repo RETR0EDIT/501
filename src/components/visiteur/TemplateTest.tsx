@@ -7,6 +7,7 @@ import ModelQuestion from "../../models/ModelQuestion";
 import ModelAnswers from "../../models/ModelAnswers";
 import ModelRate from "../../models/ModelRate";
 import "../styles/visiteur/TemplateTest.css";
+import { Link } from "react-router-dom";
 
 const TemplateTest: React.FC = () => {
   const { idTest } = useParams<{ idTest: string }>();
@@ -199,7 +200,11 @@ const TemplateTest: React.FC = () => {
       console.log("Enregistrement de la note:", rate);
       await Rates.Create(rate);
     } catch (err) {
-      console.error("Erreur lors de l'enregistrement de la note:", err, JSON.stringify(rate));
+      console.error(
+        "Erreur lors de l'enregistrement de la note:",
+        err,
+        JSON.stringify(rate)
+      );
     }
   };
 
@@ -217,41 +222,90 @@ const TemplateTest: React.FC = () => {
 
   if (isTestAlreadyDone) {
     return (
-      <div className="test-already-done">
-        <h1 className="test-already-done-title">Test déjà fait !</h1>
-        <h2 className="test-already-done-subtitle">Vos réponses :</h2>
-        <ul className="test-already-done-list">
-          {userAnswers.map((answer, index) => (
-            <li key={index} className="test-already-done-item">
-              Question {answer.question.id}: {answer.content} -{" "}
-              {answer.isvalid ? "Correct" : "Incorrect"}
-            </li>
-          ))}
-        </ul>
+      <div className="test-already-done-container">
+        <div className="test-already-done">
+          <h1 className="test-already-done-title">Test déjà fait !</h1>
+          <h2 className="test-already-done-subtitle">Vos réponses :</h2>
+          <ul className="test-already-done-list">
+            {userAnswers.map((answer, index) => (
+              <li
+                key={index}
+                className={`test-already-done-item ${
+                  answer.isvalid ? "correct-answer" : "incorrect-answer"
+                }`}
+              >
+                <div>
+                  Question {index + 1}: {answer.question.title}
+                </div>
+                <div className="answer-container">
+                  <div className="answer-text">
+                    <span
+                      className={`answer-text ${
+                        answer.isvalid
+                          ? "correct-answer-text"
+                          : "incorrect-answer-text"
+                      }`}
+                    >
+                      {answer.content}
+                    </span>
+                  </div>
+                  <div>
+                    <span>Réponse: </span>
+                    <span className="answer-result">
+                      {answer.isvalid ? "Correct" : "Incorrect"}
+                    </span>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
 
   if (isTestFinished) {
     return (
-      <div className="test-finished">
-        <h1 className="test-finished-title">Test terminé !</h1>
-        <h2 className="test-finished-subtitle">Récapitulatif des réponses :</h2>
-        <ul className="test-finished-list">
-          {verifiedAnswers.map((answer, index) => (
-            <li key={index} className="test-finished-item">
-              Question {answer.question.id}: {answer.content} -{" "}
-              {answer.isvalid ? "Correct" : "Incorrect"}
-            </li>
-          ))}
-        </ul>
-        <a
-          href="http://localhost:5173/visiteur/probleme"
-          className="finish-button"
-          onClick={handleFinishTest}
-        >
-          Terminer
-        </a>
+      <div className="test-already-done-container">
+        <div className="test-finished">
+          <h1 className="test-finished-title">Test terminé !</h1>
+          <h2 className="test-finished-subtitle">
+            Récapitulatif des réponses :
+          </h2>
+          <ul className="test-finished-list">
+            {verifiedAnswers.map((answer, index) => (
+              <li
+                key={index}
+                className={`test-finished-item ${
+                  answer.isvalid ? "correct-answer" : "incorrect-answer"
+                }`}
+              >
+                <div>
+                  Question {index + 1}: {answer.question.title}
+                </div>
+                <div>
+                  <span
+                    className={`answer-text ${
+                      answer.isvalid
+                        ? "correct-answer-text"
+                        : "incorrect-answer-text"
+                    }`}
+                  >
+                    {answer.content}
+                  </span>
+                </div>
+                <div>{answer.isvalid ? "Correct" : "Incorrect"}</div>
+              </li>
+            ))}
+          </ul>
+          <Link
+            className="finish-button"
+            to="/visiteur/probleme"
+            onClick={handleFinishTest}
+          >
+            Terminer
+          </Link>
+        </div>
       </div>
     );
   }

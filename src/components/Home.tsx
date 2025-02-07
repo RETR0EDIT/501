@@ -38,20 +38,18 @@ const Home = () => {
           </div>
           <div className="apropos-text">
             <p>
-            L’IUT de Meaux vous ouvre ses portes pour une journée riche en découvertes. 
-            Venez explorer nos locaux modernes, rencontrer nos enseignants et étudiants, 
-            et en apprendre davantage sur nos formations adaptées aux enjeux professionnels d’aujourd’hui. 
-            Une occasion idéale pour découvrir un lieu d’apprentissage tourné vers l’avenir.            </p>
-            <p>
-            À l’IUT de Meaux, nous combinons excellence académique et proximité avec le monde professionnel.
-             Nos formations, nos équipements et notre pédagogie innovante offrent un cadre stimulant pour réussir 
-             et se préparer à l’avenir. Profitez de cette journée pour comprendre ce qui fait la force de notre établissement.
-            </p>
-            <p>
-            Nos équipes de professeurs et d'étudiants seront présentes pour répondre à vos questions et vous accompagner dans votre projet professionnel. 
-            Que ce soit sur place ou via nos contacts en ligne, nous sommes là pour vous guider et vous faire découvrir 
-            tout ce que l’IUT de Meaux peut vous offrir.
-            </p>
+            L’IUT de Meaux, affilié à l’Université Gustave Eiffel, est un établissement d’enseignement supérieur au cœur de l’Île-de-France. 
+            Il offre un cadre moderne et dynamique, idéal pour développer des compétences pratiques et théoriques dans divers domaines.
+            <br />
+            Sa mission : former de ETUDIANTS POUR DEVENIR professionnels qualifiés et polyvalents grâce à des projets concrets et une pédagogie innovante. 
+            L’approche professionnalisante de l’IUT, ses infrastructures modernes, et ses liens avec le monde de l’entreprise en font un choix idéal pour réussir.</p>
+            <br />
+            <h1>Rejoindre l’IUT de Meaux, c’est opter pour :</h1>
+            <ul>
+              <li>Une formation adaptée aux besoins actuels.</li>
+              <li>Un accompagnement personnalisé dans un environnement à taille humaine.</li>
+              <li>De multiples opportunités professionnelles et académiques.</li>
+            </ul>
             <div className="apropos-actions">
               {/* <button className="apropos-button">
                 En savoir plus
@@ -64,7 +62,14 @@ const Home = () => {
               </button> */}
             </div>
           </div>
+          
         </div>
+
+
+
+
+
+        
         <div className="apropos-content-right">
           <img className="apropos-img" src="/apropos.svg" alt="" />
           <img className="apropos-row-img" src="/apropos-row.svg" alt="" />
@@ -129,6 +134,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      
     </div>
   );
 };

@@ -9,6 +9,7 @@ interface ModelAccount {
   status: string;
   role: string;
   phone: string;
+  phoneType: string;
   currentstudy: string;
   image: string;
   createdat: Date;

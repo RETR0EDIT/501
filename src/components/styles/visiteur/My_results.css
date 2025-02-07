@@ -29,6 +29,9 @@
   color: white;
   margin-bottom: 15px;
 }
+.result-paragraph {
+  margin-right: 5px;
+}
 
 .answers-list-result {
   list-style-type: none;
@@ -54,7 +57,10 @@
   margin-top: 20px;
 }
 
-/* Styles pour le message "Aucun résultat trouvé" */
+.my-result__content {
+  display: flex;
+}
+
 .no-results-message-result {
   text-align: center;
   padding: 20px;

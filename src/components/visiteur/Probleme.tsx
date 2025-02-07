@@ -53,6 +53,9 @@ export default function Probleme() {
 
   return (
     <div className="probleme-container">
+      <div className="cnt-title">
+        <h1 className="title">CHOISIS TON QUIZZ</h1>
+      </div>
       <ul className="filter-list">
         <li className="filter-item">
           <button
@@ -93,8 +96,6 @@ export default function Probleme() {
           </button>
         </li>
       </ul>
-
-      <h1 className="title">Liste des Tests</h1>
       {tests.length === 0 ? (
         <div className="no-results">
           Aucun test trouvé pour la filière sélectionnée.
@@ -110,6 +111,7 @@ export default function Probleme() {
             >
               <li className="test-item">
                 <h2 className="test-title">{test.title}</h2>
+                <p className="test-custom-text">{test.customText}</p> {/* Affiche le texte personnalisé */}
               </li>
             </Link>
           ))}

@@ -10,8 +10,6 @@ const ProfilsVisiteur: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [profileImage, setProfileImage] = useState<string | null>(null);
-  const uploadUrl = import.meta.env.VITE_UPLOAD_API_URL;
-  const API_URL = `${import.meta.env.VITE_API_URL}/upload`;
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -53,6 +51,8 @@ const ProfilsVisiteur: React.FC = () => {
     return <div className="error">{error}</div>;
   }
 
+  const API_URL = `${import.meta.env.VITE_API_URL}/upload`;
+  const Upload_URL = `${import.meta.env.UPLOAD_API_URL}/`;
   return (
     <div className="profils-visiteur">
       <div className="container-visiteur">
@@ -60,7 +60,7 @@ const ProfilsVisiteur: React.FC = () => {
           <div className="profile-circle">
             <img
               src={
-                profileImage ? `${uploadUrl}/${profileImage}` : `/default.svg`
+                profileImage ? `${Upload_URL}${profileImage}` : `/default.svg`
               }
               alt="Avatar utilisateur"
             />

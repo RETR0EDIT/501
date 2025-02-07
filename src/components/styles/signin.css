@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 87vh;
+  height: 100vh;
   background-color: #f5f5f5;
 }
 
@@ -130,14 +130,14 @@ select.signin-input {
 }
 
 .date {
-  width: 243px;
+  width: 230px; /* Reduce the width slightly */
 }
 
 .date .signin-input {
   padding-right: 10px;
 }
 .tel {
-  width: 202px;
+  width: 215px; /* Increase the width slightly */
 }
 
 .calendrier {
@@ -357,4 +357,56 @@ select.signin-input {
       width: 100%;
     }
   }
+
+  .phone-input-container {
+    position: relative;
+  }
+  
+  .phone-type-select {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 0 5px;
+    font-size: 1em;
+    z-index: 1;
+  }
+  
+  .phone-input {
+    padding-right: 60px; /* Adjust the padding to make space for the select */
+  }
+}
+
+.phone-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.phone-type-select {
+  margin-right: -1px; /* Remove the gap between select and input */
+  height: 38px; /* Ensure the select element has the same height as the input */
+  border: 1px solid #432683; /* Match the input border */
+  border-radius: 10px 0 0 10px; /* Rounded corners on the left */
+  padding: 10px 5px; /* Adjust the padding to make space for the text */
+  font-family: "TT Norms Pro Regular"; /* Match the input font */
+  outline: none; /* Remove default outline */
+  width: 60px; /* Reduce the width of the select element */
+  -webkit-appearance: none; /* Remove default arrow in WebKit browsers */
+  -moz-appearance: none; /* Remove default arrow in Firefox */
+  appearance: none; /* Remove default arrow in other browsers */
+  text-align: center; /* Center the text */
+  cursor: pointer;
+}
+
+.phone-input {
+  flex: 1; /* Allow the input to take the remaining space */
+  height: 100%; /* Ensure the input element has the same height as the select */
+  border: 1px solid #432683; /* Match the input border */
+  border-radius: 0 10px 10px 0; /* Rounded corners on the right */
+  padding: 10px; /* Match the input padding */
+  font-family: "TT Norms Pro Regular"; /* Match the input font */
+  outline: none; /* Remove default outline */
+  width: calc(100% - 60px); /* Ensure the input is wider than the select */
 }

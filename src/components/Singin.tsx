@@ -17,6 +17,7 @@ const Signin = () => {
     study: "",
     role: "USER",
     phone: "",
+    phoneType: "fr",
     image: "",
     createdat: new Date(),
     editedat: new Date(),
@@ -51,6 +52,59 @@ const Signin = () => {
     }));
   };
 
+  const handleCityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    if (/^[a-zA-Z\s]*$/.test(value)) {
+      setAccountData((prevData) => ({
+        ...prevData,
+        city: value,
+      }));
+    }
+  };
+
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    const phoneType = accountData.phoneType;
+
+    if (phoneType === "fr") {
+      // Validate French phone number (10 digits)
+      if (/^\d{0,10}$/.test(value)) {
+        setAccountData((prevData) => ({
+          ...prevData,
+          phone: value,
+        }));
+      }
+    } else if (phoneType === "intl") {
+      // Validate international phone number (up to 15 digits)
+      if (/^\d{0,15}$/.test(value)) {
+        setAccountData((prevData) => ({
+          ...prevData,
+          phone: value,
+        }));
+      }
+    }
+  };
+
+  const handlePhoneTypeChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const value = event.target.value;
+    setAccountData((prevData) => ({
+      ...prevData,
+      phoneType: value,
+    }));
+  };
+
+  const handleNameChange = (e) => {
+    const { name, value } = e.target;
+    if (/^[a-zA-Z\s]*$/.test(value)) {
+      setAccountData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (accountData.password !== confirmPassword) {
@@ -69,7 +123,15 @@ const Signin = () => {
     }
     try {
       const token = uuidv4();
-      const accountDataWithToken = { ...accountData, token };
+      const formattedDate =
+        accountData.date instanceof Date
+          ? accountData.date.toISOString()
+          : new Date(accountData.date).toISOString();
+      const accountDataWithToken = {
+        ...accountData,
+        token,
+        date: formattedDate,
+      };
 
       let trueAccountData = await Accounts.Create(accountDataWithToken);
       if (accountData.role === "PROF") {
@@ -121,7 +183,7 @@ const Signin = () => {
                     name="firstname"
                     placeholder="Prénom"
                     value={accountData.firstname}
-                    onChange={handleChange}
+                    onChange={handleNameChange}
                     required
                     className="signin-input"
                   />
@@ -133,7 +195,7 @@ const Signin = () => {
                     name="lastname"
                     placeholder="Nom"
                     value={accountData.lastname}
-                    onChange={handleChange}
+                    onChange={handleNameChange}
                     required
                     className="signin-input"
                   />
@@ -161,7 +223,7 @@ const Signin = () => {
                         name="city"
                         placeholder="Ville"
                         value={accountData.city}
-                        onChange={handleChange}
+                        onChange={handleCityChange}
                         required
                         className="signin-input"
                       />
@@ -235,15 +297,23 @@ const Signin = () => {
                     <span className="signin-span">Date de naissance</span>
                     <input
                       type="date"
-                      name="birthdate"
+                      name="date"
                       placeholder="Date de naissance"
-                      value={accountData.date.toISOString().split("T")[0]}
+                      value={
+                        accountData.date
+                          ? accountData.date.toISOString().split("T")[0]
+                          : ""
+                      }
                       onChange={(e) => {
-                        handleChange(e);
-                        setAccountData((prevData) => ({
-                          ...prevData,
-                          date: new Date(e.target.value),
-                        }));
+                        const date = new Date(e.target.value);
+                        if (!isNaN(date.getTime())) {
+                          setAccountData((prevData) => ({
+                            ...prevData,
+                            date: date,
+                          }));
+                        } else {
+                          console.error("Invalid date value");
+                        }
                       }}
                       required
                       className="signin-input"
@@ -261,20 +331,30 @@ const Signin = () => {
                       src={
                         isDarkMode ? "/calendrier_dark.svg" : "/calendrier.svg"
                       }
-                      alt=""
                     />
                   </div>
                   <div className="input-ctn tel">
                     <span className="signin-span">Téléphone</span>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Téléphone"
-                      value={accountData.phone}
-                      onChange={handleChange}
-                      required
-                      className="signin-input"
-                    />
+                    <div className="phone-input-container">
+                      <select
+                        name="phoneType"
+                        value={accountData.phoneType}
+                        onChange={handlePhoneTypeChange}
+                        className="phone-type-select"
+                      >
+                        <option value="fr">+33</option>
+                        <option value="intl">Autre</option>
+                      </select>
+                      <input
+                        type="text"
+                        name="phone"
+                        placeholder="Numéro de téléphone"
+                        value={accountData.phone}
+                        onChange={handlePhoneChange}
+                        required
+                        className="signin-input phone-input"
+                      />
+                    </div>
                   </div>
                 </div>
               )}

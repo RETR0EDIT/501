@@ -11,10 +11,18 @@ const Tests = {
     return await Post(API_URL, Data);
   },
   GetByStudy: async (study: string) => {
-    return await Get(`${API_URL}/study/${study}`);
+    const tests = await Get(`${API_URL}/study/${study}`);
+    return tests.map((test: ModelTest) => ({
+      ...test,
+      description: test.content // Utilise le texte personnalisé spécifique
+    }));
   },
   Read: async () => {
-    return await Get(API_URL);
+    const tests = await Get(API_URL);
+    return tests.map((test: ModelTest) => ({
+      ...test,
+      description: test.content // Utilise le texte personnalisé spécifique
+    }));
   },
   Update: async (Data: ModelTest) => {
     return await Put(API_URL, Data);

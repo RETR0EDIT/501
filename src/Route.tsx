@@ -16,7 +16,7 @@ import CreaTest from "./components/professeur/CreaTest.tsx";
 import RouteVisiteur from "./components/visiteur/Route.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RouteProffeseur from "./components/professeur/Route.tsx";
-
+import Faq from "./components/Faq.tsx";
 import Stats from "./components/professeur/Stats";
 import Template from "./components/professeur/Template";
 
@@ -78,6 +78,10 @@ const router = createBrowserRouter([
         element: <MentionsLegales />,
       },
       {
+        path: "/faq",
+        element: <Faq />,
+      },
+      {
         path: "/visiteur",
         element: (
           <PrivateRoute
@@ -119,6 +123,10 @@ const router = createBrowserRouter([
           {
             path: "conference",
             element: <Conference />,
+          },
+          {
+            path: "faq",
+            element: <Faq />,
           },
         ],
       },
