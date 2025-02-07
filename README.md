@@ -1,5 +1,5 @@
 # 501_FRONT
-
+Ce repo git sert uniquement pour l'hebergement.
 Git Hub principal
 https://github.com/xtraide/501
 
