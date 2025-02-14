@@ -155,8 +155,10 @@ const Login: React.FC = () => {
               />
             </button>
           </form>
-          {message && <p className="login-message">{message}</p>}
-          {showLocation && <Location />}
+          <div className="login-message-ctn">
+            {message && <p className="login-message">{message}</p>}
+            {showLocation && <Location />}
+          </div>
         </div>
       </div>
       <img src="/Elispe.svg" alt="" className="elipse" />

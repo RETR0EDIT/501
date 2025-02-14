@@ -394,7 +394,9 @@ const Signin = () => {
                 />
               </button>
             </form>
-            {message && <p className="signin-message">{message}</p>}
+            <div className="sign-in-message-ctn">
+              {message && <p className="signin-message">{message}</p>}
+            </div>
           </div>
         </div>
         <img src="/Elispe.svg" alt="" className="elipse" />

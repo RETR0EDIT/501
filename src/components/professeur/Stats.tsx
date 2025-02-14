@@ -42,18 +42,28 @@ export default function Stats() {
     if (!showActions && actionsRef.current) {
       gsap.to(actionsRef.current, {
         x: -400,
-
-        duration: 0.4,
+        duration: 1,
         display: "none",
         zIndex: -1,
+        onUpdate: () => {
+          gsap.to(".results-container", {
+            width: "100%",
+            duration: 1,
+          });
+        },
       });
     } else if (showActions && actionsRef.current) {
       gsap.to(actionsRef.current, {
         x: 0,
-
-        duration: 0.4,
+        duration: 1,
         display: "flex",
         zIndex: 1,
+        onUpdate: () => {
+          gsap.to(".results-container", {
+            width: "calc(100% - 400px)",
+            duration: 1,
+          });
+        },
       });
     }
   }, [showActions]);

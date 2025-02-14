@@ -30,6 +30,9 @@
   align-items: center;
 }
 
+.login-message-ctn {
+  height: 20px;
+}
 .login-ctn {
   display: flex;
   justify-content: center;
