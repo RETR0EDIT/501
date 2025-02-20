@@ -1,0 +1,4 @@
+Sitemap: https://www.iut-meaux.fr/sitemap.xml
+
+User-agent: *
+Disallow: 
